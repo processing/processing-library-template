@@ -13,6 +13,15 @@ on Intellij and Gradle.
 I also wish to thank the developers of these repositories, who generously provided 
 guidance and time. This template has been developed in collaboration with @enkatsu.
 
+## How to use
+This repository is designed to be built with Gradle. The best IDE experience is with
+Intellij.
+
+This repository can be built as is. On the right menu bar in Intellij, there is a 
+Gradle menu. Toggle Tasks > build and double-click on build to run the build.
+This will create a build artifacts in the `build` folder. The built jar can be found
+in `build/libs`. 
+
 
 ## Project Diary
 
@@ -23,7 +32,7 @@ Have taken a close look at two templates:
   - The developer interaction for configuring the build is to fill out the 
     /resources/build.properties file with all build and release parameters
   - It resolves Processing by pointing to the locally installed jar files
-  - The build.gradle file has 141 lines
+  - The build.gradle file has 141 lines; processing-library.gradle 159 lines
   - It provides gradle tasks for releasing the library
   - This template provides fully documented example code, and an example
 - https://github.com/enkatsu/processing-library-template-gradle
@@ -33,7 +42,7 @@ Have taken a close look at two templates:
   - The build.gradle file has 56 lines
 
 Stef suggested that the best way to resolve Processing at this time is to use
-jitpack to compile a github repository. There is an unofficial repository for
+jitpack to compile a Github repository. There is an unofficial repository for
 resolving Processing4 with jitpack at https://github.com/micycle1/processing-core-4/
 Additionally, Stef suggested that we should move to Kotlin, as it is the current
 default; the gradle files in both repositories described above use Groovy.
