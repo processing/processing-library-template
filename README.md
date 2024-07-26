@@ -29,6 +29,27 @@ in `build/libs`.
 
 ## Project Diary
 
+### Week 4 (July 22 - 28, 2024)
+
+After a few weeks swimming in Gradle, this repo has emerged. The approach I'm 
+taking with it, is to start from an empty Gradle project, and add to it functionality
+learned from the two model repos. Key feature is I want it buildable as is. It
+currently will build a jar, and it will release a zip. 
+
+Some todos (Github issues are already created) before I release it for user testing are:
+- Include a Processing library dependency. This will likely require the user to 
+input where their sketchbook folder is. The gradle release tasks will need to be
+augmented to also include Processing library dependencies in the release bundle.
+- Once the sketchbook location is known, the library can be installed into Processing
+- Check the javadoc output is as expected
+
+One additional difference between the two model template repositories, is enkatsu's
+creates a shadow jar, including all dependencies inside the jar. The processing
+template includes all dependencies in the release zip file as jars. Both do the job,
+but including dependency jars in the release zip makes it more transparent what 
+the dependencies are, so we implement that here.
+
+
 ### Weeks 1 - 3 (July 1 - 21, 2024)
 
 Having discussed with Stef, my mentor, about the general approach to the entire 
