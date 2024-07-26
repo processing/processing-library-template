@@ -25,8 +25,6 @@ repositories {
     maven { url = uri("https://jogamp.org/deployment/maven/") }
 }
 
-val processingCore by configurations.creating
-
 dependencies {
     // resolve Processing core
     compileOnly("com.github.micycle1:processing-core-4:4.3.1")
