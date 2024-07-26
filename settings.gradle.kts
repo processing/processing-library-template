@@ -1,2 +1,2 @@
-rootProject.name = "processing-library-template"
+rootProject.name = "HelloLibrary"
 

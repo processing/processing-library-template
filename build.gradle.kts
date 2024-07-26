@@ -5,12 +5,19 @@ plugins {
     id("java-library")
 }
 
+//==========================
+// USER BUILD CONFIGURATIONS
+
 // the short name of your library. This string will name relevant files and folders.
 val libName = "HelloLibrary"
 // Such as:
 // <libName>.jar will be the name of your build jar
 // <libName>.zip will be the name of your release file
+
+// group id of your library. Often is reverse domain
 group = "com.example"
+
+// version of library, usually semver
 version = "1.0-SNAPSHOT"
 
 java {
@@ -21,6 +28,8 @@ java {
 
 repositories {
     mavenCentral()
+
+    // these two are needed to resolve processing4 from micycle1's repo
     maven { url = uri("https://jitpack.io") }
     maven { url = uri("https://jogamp.org/deployment/maven/") }
 }
@@ -29,7 +38,8 @@ dependencies {
     // resolve Processing core
     compileOnly("com.github.micycle1:processing-core-4:4.3.1")
     
-    // external dependency TODO actually use dependency in library
+    // insert your external dependencies
+    // TODO actually use dependency in library
     implementation("org.apache.commons:commons-math3:3.6.1")
 
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
@@ -46,8 +56,11 @@ tasks.test {
     useJUnitPlatform()
 }
 
-//======================
-// For releasing library
+// END USER BUILD CONFIGURATIONS
+//==============================
+
+//============================
+// Tasks for releasing library
 
 val libraryProperties = Properties().apply {
     load(rootProject.file("library.properties").inputStream())
