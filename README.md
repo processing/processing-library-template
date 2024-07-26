@@ -19,9 +19,12 @@ This repository is designed to be built with Gradle. The best IDE experience is 
 Intellij.
 
 This repository can be built as is. On the right menu bar in Intellij, there is a 
-Gradle menu. Toggle Tasks > build and double-click on build to run the build.
-This will create a build artifacts in the `build` folder. The built jar can be found
+Gradle menu. Toggle Run Configurations, and double click each configuration to run it. 
+- `clean` deletes the `build` folder
+- `build` will create build artifacts in the `build` folder. The built jar can be found
 in `build/libs`. 
+- `javadoc` creates documentation in `build/docs`
+- `releaseProcessingLib` creates the release artifacts in the `release` folder
 
 
 ## Project Diary

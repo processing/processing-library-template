@@ -1,4 +1,4 @@
-package library.template;
+package com.example;
 
 import processing.core.*;
 
