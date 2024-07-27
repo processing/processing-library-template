@@ -56,6 +56,14 @@ tasks.test {
     useJUnitPlatform()
 }
 
+tasks.withType<Javadoc> {
+    options {
+        this as StandardJavadocDocletOptions
+        charSet = "UTF-8"
+        encoding = "UTF-8"
+    }
+}
+
 // END USER BUILD CONFIGURATIONS
 //==============================
 
