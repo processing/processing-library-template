@@ -9,10 +9,16 @@ plugins {
 // USER BUILD CONFIGURATIONS
 
 // the short name of your library. This string will name relevant files and folders.
-val libName = "HelloLibrary"
 // Such as:
 // <libName>.jar will be the name of your build jar
 // <libName>.zip will be the name of your release file
+val libName by extra("HelloLibrary")
+
+// location of your sketchbook folder, required only if you have
+// 1. Wish to copy the library to the Processing sketchbook
+// 2. Processing library dependencies
+val sketchbookLocation by extra(System.getProperty("user.home")+"/sketchbook")
+
 
 // group id of your library. Often is reverse domain
 group = "com.example"
@@ -37,7 +43,7 @@ repositories {
 dependencies {
     // resolve Processing core
     compileOnly("com.github.micycle1:processing-core-4:4.3.1")
-    
+
     // insert your external dependencies
     // TODO actually use dependency in library
     implementation("org.apache.commons:commons-math3:3.6.1")
@@ -128,7 +134,7 @@ tasks.register("releaseProcessingLib") {
             exclude("*.DS_Store", "**/networks/**")
         }
 
-        println("Copy repository library.text...")
+        println("Copy repository library.txt...")
         copy {
             from(rootDir)
             include("library.properties")
@@ -145,4 +151,21 @@ tasks.register<Zip>("packageRelease") {
     into(libName)
     destinationDirectory.set(file(releaseRoot))
     exclude("**/*.DS_Store")
+}
+
+tasks.register("installIntoLocalProcessing") {
+    if (project.hasProperty("sketchbookLocation")) {
+        println("Copy to sketchbook...")
+        val installDirectory = "$sketchbookLocation/libraries/$libName"
+        copy {
+            from(releaseDirectory)
+            include("library.properties",
+                "examples/**",
+                "library/**",
+                "reference/**",
+                "src/**"
+            )
+            into(installDirectory)
+        }
+    }
 }
