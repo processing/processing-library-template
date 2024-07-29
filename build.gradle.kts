@@ -12,7 +12,7 @@ plugins {
 // Such as:
 // <libName>.jar will be the name of your build jar
 // <libName>.zip will be the name of your release file
-val libName by extra("HelloLibrary")
+val libName = rootProject.name
 
 // location of your sketchbook folder, required only if you have
 // 1. Wish to copy the library to the Processing sketchbook
@@ -24,7 +24,7 @@ val sketchbookLocation by extra(System.getProperty("user.home")+"/sketchbook")
 group = "com.example"
 
 // version of library, usually semver
-version = "1.0-SNAPSHOT"
+version = "1.0.0"
 
 java {
     toolchain {
@@ -79,8 +79,13 @@ val releaseRoot = "$rootDir/release"
 val releaseName = libName
 val releaseDirectory = "$releaseRoot/$releaseName"
 
+// define the order of running, to ensure clean is run first
+tasks.build.get().mustRunAfter("clean")
+tasks.javadoc.get().mustRunAfter("build")
+
 tasks.register("releaseProcessingLib") {
-    dependsOn("clean", "build", "javadoc", "jar")
+    group = "processing"
+    dependsOn("clean","build","javadoc")
     finalizedBy("packageRelease")
 
     doFirst {
@@ -88,11 +93,7 @@ tasks.register("releaseProcessingLib") {
         println(org.gradle.internal.jvm.Jvm.current())
 
         println("Cleaning release...")
-        project.delete(files(
-            "$releaseDirectory",
-            "$releaseRoot/$releaseName.zip",
-            "$releaseRoot/$releaseName.txt"
-        ))
+        project.delete(files(releaseRoot))
     }
 
     doLast {
@@ -154,6 +155,7 @@ tasks.register<Zip>("packageRelease") {
 }
 
 tasks.register("copyToLocalProcessing") {
+    group = "processing"
     if (project.hasProperty("sketchbookLocation")) {
         println("Copy to sketchbook...")
         val installDirectory = "$sketchbookLocation/libraries/$libName"
