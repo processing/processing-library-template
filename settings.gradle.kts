@@ -1,2 +1,1 @@
-rootProject.name = "HelloLibrary"
-
+rootProject.name = "mylibrary"

@@ -1,4 +1,4 @@
-import library.template.*;
+import com.example.mylibrary.*;
 
 HelloLibrary hello;
 
