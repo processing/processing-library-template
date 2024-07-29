@@ -153,7 +153,7 @@ tasks.register<Zip>("packageRelease") {
     exclude("**/*.DS_Store")
 }
 
-tasks.register("installIntoLocalProcessing") {
+tasks.register("copyToLocalProcessing") {
     if (project.hasProperty("sketchbookLocation")) {
         println("Copy to sketchbook...")
         val installDirectory = "$sketchbookLocation/libraries/$libName"
