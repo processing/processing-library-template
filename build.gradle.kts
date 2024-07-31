@@ -7,23 +7,31 @@ plugins {
 //==========================
 // USER BUILD CONFIGURATIONS
 
-// the short name of your library. This string will name relevant files and folders.
-// Such as:
-// <libName>.jar will be the name of your build jar
-// <libName>.zip will be the name of your release file
-val libName = rootProject.name
-
-// location of your sketchbook folder, required only if you
-// 1. wish to copy the library to the Processing sketchbook, such that you can import it in Processing
-// 2. have Processing library dependencies
-val sketchbookLocation by extra(System.getProperty("user.home")+"/sketchbook")
-
-
 // group id of your library. Often is reverse domain
 group = "com.example"
 
 // version of library, usually semver
 version = "1.0.0"
+
+// The location of your sketchbook folder. The sketchbook folder holds your installed libraries, tools, and modes
+// It is needed only if you
+// 1. wish to copy the library to the Processing sketchbook, such that you can import it in Processing
+// 2. have Processing library dependencies
+//
+// System.getProperty("user.home") is your home directory
+// Windows: System.getProperty("user.home")+"/My Documents/Processing/sketchbook"
+// Mac: System.getProperty("user.home")+"/Documents/Processing/sketchbook"
+// Linux: System.getProperty("user.home")+"/sketchbook"
+// If these do not work, check the sketchbook location in your Processing application preferences.
+val sketchbookLocation = System.getProperty("user.home")+"/sketchbook"
+
+// the short name of your library. This string will name relevant files and folders.
+// Such as:
+// <libName>.jar will be the name of your build jar
+// <libName>.zip will be the name of your release file
+// this name defaults to the rootProject.name
+val libName = rootProject.name
+
 
 java {
     toolchain {
@@ -46,6 +54,7 @@ dependencies {
     // insert your external dependencies
     // TODO actually use dependency in library
     implementation("org.apache.commons:commons-math3:3.6.1")
+    implementation("org.json:json:20240303")
 
     // To add a dependency on a Processing library that is installed locally,
     // uncomment the line below, and replace <library folder> with the location of that library
@@ -71,16 +80,32 @@ tasks.test {
 //============================
 // Tasks for releasing library
 
-val libraryProperties = Properties().apply {
-    load(rootProject.file("library.properties").inputStream())
-}
-
-val userHome = System.getProperty("user.home")
-val libVersion = libraryProperties.getProperty("version")
-
 val releaseRoot = "$rootDir/release"
 val releaseName = libName
 val releaseDirectory = "$releaseRoot/$releaseName"
+
+// read in user-defined properties in release.properties file
+// to be saved in library.properties file, a required file in the release
+// using task writeLibraryProperties
+val libraryProperties = Properties().apply {
+    load(rootProject.file("release.properties").inputStream())
+}
+
+tasks.register<WriteProperties>("writeLibraryProperties") {
+    group = "processing"
+    destinationFile = project.file("library.properties")
+
+    property("name", libraryProperties.getProperty("name"))
+    property("version", libraryProperties.getProperty("version"))
+    property("prettyVersion", project.version)
+    property("authors", libraryProperties.getProperty("authors"))
+    property("url", libraryProperties.getProperty("url"))
+    property("categories", libraryProperties.getProperty("categories"))
+    property("sentence", libraryProperties.getProperty("sentence"))
+    property("paragraph", libraryProperties.getProperty("paragraph"))
+    property("minRevision", libraryProperties.getProperty("minRevision"))
+    property("maxRevision", libraryProperties.getProperty("maxRevision"))
+}
 
 // define the order of running, to ensure clean is run first
 tasks.build.get().mustRunAfter("clean")
@@ -88,7 +113,7 @@ tasks.javadoc.get().mustRunAfter("build")
 
 tasks.register("releaseProcessingLib") {
     group = "processing"
-    dependsOn("clean","build","javadoc")
+    dependsOn("clean","build","javadoc", "writeLibraryProperties")
     finalizedBy("packageRelease")
 
     doFirst {
