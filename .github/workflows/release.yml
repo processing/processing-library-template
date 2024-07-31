@@ -24,12 +24,10 @@ jobs:
           gradle-version: 8.5
       - name: Build with Gradle
         id: build
-        run: |
-          gradle packageRelease
-          echo zip_path=`find ./release/*.zip` >> $GITHUB_OUTPUT
+        run: gradle packageRelease
       - name: Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: ${{ steps.build.outputs.zip_path }}
+          files: release/*.zip
