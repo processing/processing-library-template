@@ -2,7 +2,6 @@ import java.util.Properties
 
 plugins {
     id("java")
-    id("java-library")
 }
 
 //==========================
@@ -14,9 +13,9 @@ plugins {
 // <libName>.zip will be the name of your release file
 val libName = rootProject.name
 
-// location of your sketchbook folder, required only if you have
-// 1. Wish to copy the library to the Processing sketchbook
-// 2. Processing library dependencies
+// location of your sketchbook folder, required only if you
+// 1. wish to copy the library to the Processing sketchbook, such that you can import it in Processing
+// 2. have Processing library dependencies
 val sketchbookLocation by extra(System.getProperty("user.home")+"/sketchbook")
 
 
@@ -47,6 +46,10 @@ dependencies {
     // insert your external dependencies
     // TODO actually use dependency in library
     implementation("org.apache.commons:commons-math3:3.6.1")
+
+    // To add a dependency on a Processing library that is installed locally,
+    // uncomment the line below, and replace <library folder> with the location of that library
+    // compileOnly(fileTree("$sketchbookLocation/libraries/<library folder>/library"))
 
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
