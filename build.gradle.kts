@@ -1,4 +1,6 @@
 import java.util.Properties
+import org.gradle.internal.os.OperatingSystem
+
 
 plugins {
     id("java")
@@ -17,13 +19,16 @@ version = "1.0.0"
 // It is needed only if you
 // 1. wish to copy the library to the Processing sketchbook, such that you can import it in Processing
 // 2. have Processing library dependencies
-//
-// System.getProperty("user.home") is your home directory
-// Windows: System.getProperty("user.home")+"/My Documents/Processing/sketchbook"
-// Mac: System.getProperty("user.home")+"/Documents/Processing/sketchbook"
-// Linux: System.getProperty("user.home")+"/sketchbook"
-// If these do not work, check the sketchbook location in your Processing application preferences.
-val sketchbookLocation = System.getProperty("user.home")+"/sketchbook"
+// You can check the sketchbook location in your Processing application preferences.
+var sketchbookLocation = ""
+if(OperatingSystem.current().isMacOsX) {
+    sketchbookLocation = System.getProperty("user.home")+"/Documents/Processing/sketchbook"
+} else if(OperatingSystem.current().isWindows) {
+    sketchbookLocation = System.getProperty("user.home")+"/My Documents/Processing/sketchbook"
+} else {
+    sketchbookLocation = System.getProperty("user.home")+"/sketchbook"
+}
+println("sketchbook location: $sketchbookLocation")
 
 // the short name of your library. This string will name relevant files and folders.
 // Such as:
@@ -31,7 +36,6 @@ val sketchbookLocation = System.getProperty("user.home")+"/sketchbook"
 // <libName>.zip will be the name of your release file
 // this name defaults to the rootProject.name
 val libName = rootProject.name
-
 
 java {
     toolchain {
@@ -54,7 +58,6 @@ dependencies {
     // insert your external dependencies
     // TODO actually use dependency in library
     implementation("org.apache.commons:commons-math3:3.6.1")
-    implementation("org.json:json:20240303")
 
     // To add a dependency on a Processing library that is installed locally,
     // uncomment the line below, and replace <library folder> with the location of that library
