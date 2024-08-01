@@ -16,10 +16,7 @@ to expect with those steps.
    and the release zip file.
 4. **Define the `group` and `version` of your library in `build.gradle.kts`.** The group is your
 domain, in reverse. The standard for version strings is semantic version (semver).
-5. **Define the location of your sketchbook folder.** This facilitates testing of your library
-in Processing. If you wish to resolve a dependency on a locally installed Processing library,
-you will also need to set file path.
-6. **Add dependencies in the `dependencies` block in `build.gradle.kts`.** 
+5. **Add dependencies in the `dependencies` block in `build.gradle.kts`.** 
 The sample library code  uses the following remote dependency that is resolved with maven:
    ```
    implementation("org.apache.commons:commons-math3:3.6.1")
@@ -30,7 +27,7 @@ in your code. Dependencies added to the `implementation` "configuration" will be
 release as jars. Dependencies added to the `compileOnly` configuration, such as Processing core, are 
 available for compilation, but won't be included in the release as jars. If you want to import 
 libraries released on Github using jitpack, jitpack is already included as a repository.
-4. **Develop your library within `src/main/java/`.** Set the `package` to your own domain and name,
+6. **Develop your library within `src/main/java/`.** Set the `package` to your own domain and name,
 and set the version. Processing libraries are required to return the current installed version.
 
 
