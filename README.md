@@ -28,7 +28,7 @@ libraries, among other things.
 TO run a task, double click on it.
 
 ### Using GitHub Actions for Library Release
-You can automatically distribute the library using GitHub Actions. The trigger to execute the release workflow is pushing a git tag that starts with `v`:
+You can automatically distribute the library using GitHub Actions. Libraries are distributed in `.zip` format to the [releases section](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) of the GitHub repository. The trigger to execute the release workflow is pushing a git tag that starts with `v`. For example:
 ```sh
 git tag v0.0.1
 git push origin v0.0.1
