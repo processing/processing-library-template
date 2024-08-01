@@ -15,21 +15,6 @@ group = "com.example"
 // version of library, usually semver
 version = "1.0.0"
 
-// The location of your sketchbook folder. The sketchbook folder holds your installed libraries, tools, and modes
-// It is needed only if you
-// 1. wish to copy the library to the Processing sketchbook, such that you can import it in Processing
-// 2. have Processing library dependencies
-// You can check the sketchbook location in your Processing application preferences.
-var sketchbookLocation = ""
-if(OperatingSystem.current().isMacOsX) {
-    sketchbookLocation = System.getProperty("user.home")+"/Documents/Processing/sketchbook"
-} else if(OperatingSystem.current().isWindows) {
-    sketchbookLocation = System.getProperty("user.home")+"/My Documents/Processing/sketchbook"
-} else {
-    sketchbookLocation = System.getProperty("user.home")+"/sketchbook"
-}
-println("sketchbook location: $sketchbookLocation")
-
 // the short name of your library. This string will name relevant files and folders.
 // Such as:
 // <libName>.jar will be the name of your build jar
@@ -86,6 +71,22 @@ tasks.test {
 val releaseRoot = "$rootDir/release"
 val releaseName = libName
 val releaseDirectory = "$releaseRoot/$releaseName"
+
+// The location of your sketchbook folder. The sketchbook folder holds your installed libraries, tools, and modes
+// It is needed only if you
+// 1. wish to copy the library to the Processing sketchbook, such that you can import it in Processing
+// 2. have Processing library dependencies
+// You can check the sketchbook location in your Processing application preferences.
+var sketchbookLocation = ""
+val userHome = System.getProperty("user.home")
+val currentOS = OperatingSystem.current()
+if(currentOS.isMacOsX) {
+    sketchbookLocation = "$userHome/Documents/Processing/sketchbook"
+} else if(currentOS.isWindows) {
+    sketchbookLocation = "$userHome/My Documents/Processing/sketchbook"
+} else {
+    sketchbookLocation = "$userHome/sketchbook"
+}
 
 // read in user-defined properties in release.properties file
 // to be saved in library.properties file, a required file in the release
