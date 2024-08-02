@@ -118,7 +118,7 @@ tasks.javadoc.get().mustRunAfter("build")
 tasks.register("releaseProcessingLib") {
     group = "processing"
     dependsOn("clean","build","javadoc", "writeLibraryProperties")
-    finalizedBy("packageRelease")
+    finalizedBy("packageRelease", "copyZipToPdex")
 
     doFirst {
         println("Releasing library $libName")
@@ -181,10 +181,19 @@ tasks.register<Zip>("packageRelease") {
     dependsOn("releaseProcessingLib")
     archiveFileName.set("${libName}.zip")
     from(releaseDirectory)
-    into(libName)
+    into(releaseName)
     destinationDirectory.set(file(releaseRoot))
     exclude("**/*.DS_Store")
 }
+
+tasks.register<Copy>("copyZipToPdex") {
+    from(releaseRoot) {
+        include("$libName.zip")
+        rename("$libName.zip", "$libName.pdex")
+    }
+    into(releaseRoot)
+}
+tasks["copyZipToPdex"].mustRunAfter("packageRelease")
 
 tasks.register("copyToLocalProcessing") {
     group = "processing"
