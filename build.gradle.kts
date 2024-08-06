@@ -115,7 +115,7 @@ tasks.register<WriteProperties>("writeLibraryProperties") {
 tasks.build.get().mustRunAfter("clean")
 tasks.javadoc.get().mustRunAfter("build")
 
-tasks.register("releaseProcessingLib") {
+tasks.register("buildReleaseArtifacts") {
     group = "processing"
     dependsOn("clean","build","javadoc", "writeLibraryProperties")
     finalizedBy("packageRelease", "copyZipToPdex")
@@ -178,7 +178,7 @@ tasks.register("releaseProcessingLib") {
 }
 
 tasks.register<Zip>("packageRelease") {
-    dependsOn("releaseProcessingLib")
+    dependsOn("buildReleaseArtifacts")
     archiveFileName.set("${libName}.zip")
     from(releaseDirectory)
     into(releaseName)
@@ -186,16 +186,16 @@ tasks.register<Zip>("packageRelease") {
     exclude("**/*.DS_Store")
 }
 
-tasks.register<Copy>("copyZipToPdex") {
+tasks.register<Copy>("duplicateZipToPdex") {
     from(releaseRoot) {
         include("$libName.zip")
         rename("$libName.zip", "$libName.pdex")
     }
     into(releaseRoot)
 }
-tasks["copyZipToPdex"].mustRunAfter("packageRelease")
+tasks["duplicateZipToPdex"].mustRunAfter("packageRelease")
 
-tasks.register("copyToLocalProcessing") {
+tasks.register("deployToProcessingSketchbook") {
     group = "processing"
     if (project.hasProperty("sketchbookLocation")) {
         println("Copy to sketchbook...")
