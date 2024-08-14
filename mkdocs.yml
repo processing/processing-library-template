@@ -1,0 +1,26 @@
+site_name: Hello Library
+site_url: "https://mingness.github.io/ProcessingLibraryTemplate/"
+
+theme:
+  name: material
+  features:
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.select
+    - content.code.highlight
+    - content.code.annotate
+    - navigation.top
+    - navigation.footer
+
+
+copyright: MIT Licence.
+
+plugins:
+  - search
+  - offline
+
+nav:
+  - Home: index.md
+  - Get Started: getting-started.md
