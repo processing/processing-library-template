@@ -1,5 +1,5 @@
 site_name: Hello Library
-site_url: "https://mingness.github.io/ProcessingLibraryTemplate/"
+site_url: "https://mingness.github.io/processing-library-template/"
 
 theme:
   name: material
