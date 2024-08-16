@@ -110,8 +110,9 @@ instructions.
    configure your website as you prefer.
 4. The template has a Github workflow for deploying the MkDocs website
    as a Github Page. You'll need to activate Github Pages and Github Actions
-   for your account.
-
+   for your project. For Github Pages, set the Source to "Deploy from a branch."
+   Set the branch to `gh-pages` ; this branch is created by the 
+   command `mkdocs gh-deploy`. Serve from the root folder.
 
 ## Contributors
 

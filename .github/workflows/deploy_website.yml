@@ -2,7 +2,7 @@ name: deploy_website
 on:
   push:
     branches:
-      - add-mkdocs
+      - main
 permissions:
   contents: write
 jobs:
@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.x
-      - name: Install Material for MkDocs
+      - name: Install dependencies
         run: pip install mkdocs-material
       - name: Deploy website
         run: mkdocs gh-deploy --force
