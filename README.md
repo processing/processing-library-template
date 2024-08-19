@@ -22,9 +22,9 @@ References for developing libraries for Processing can be found on the following
 ## How to use this template
 
 For each of the three outputs that are required, we have a section to guide you in creating it.
-1. [Developing your code](#developing_your_code)
-2. [Providing the release artifacts](#providing_the_release_artifacts)
-3. [Creating your website](#creating_your_website)
+1. [Developing your code](#developing-your-code)
+2. [Providing the release artifacts](#providing-the-release-artifacts)
+3. [Creating your website](#creating-your-website)
 
 ### Developing your code
 We use Gradle to help build your code, and import dependencies.
@@ -90,35 +90,31 @@ git push origin v0.0.1
 
 
 ### Creating your website
-A requirement for having your library listed officially is to have a stable website.  Library developers
-have clued us into [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/),
-as a simple and easy to use way of creating content. If your library is on Github, then you can take
-advantage of Github Pages to deploy and host the website. We configure this template for this scenario.
+A requirement for having your library listed officially is to have a stable documentation website.  
+[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/), is a straightforward way of creating content. 
+If your library is on Github, then you can take advantage of Github Pages to deploy and host the website. 
+We have configured a Github workflow at `.github/workflows/deploy-website.yml` that will process files 
+in the `docs` folder with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and deploy it as a Github Page.
 
-MkDocs is Python-based, so if you are not already a Python user, hopefully your OS already has a system
-Python installed. You can check by running `python --version` in a terminal. If you do not already have
-Python installed, or do not have Python 3, you will need to install Python 3 as a prerequisite to these
-instructions.
+The configuration of the website is defined in the `mkdocs.yml` file. We have included some plugins, such
+as search, code block copy and annotations, and navigation bars. The navigation menu is configured in
+`mkdocs.yml` as well.
 
-1. Install [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
-   Please refer to the documentation. For example, run `pip install mkdocs-material` in a terminal.
-2. We already created a very barebones website in the template. you can
-   see it in action by running `mkdocs serve`
-3. As seen in the documentation, the configuration of the website
-   is defined in the `mkdocs.yml` file. We have included some plugins, such
-   as search, code block copy and annotations, and navigation bars. Of course,
-   configure your website as you prefer.
-4. The template has a Github workflow for deploying the MkDocs website
-   as a Github Page. You'll need to activate Github Pages and Github Actions
-   for your project. For Github Pages, set the Source to "Deploy from a branch."
-   Set the branch to `gh-pages` ; this branch is created by the 
+If you would like to preview your website locally, you will need to install [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
+on your computer. please refer to the documentation.
+
+1. You'll need to activate Github Pages and Github Actions for your project in the settings.
+2. In settings > Github Pages, set the Source to "Deploy from a branch."
+   Set the branch to `gh-pages` ; this branch is created by the
    command `mkdocs gh-deploy`. Serve from the root folder.
+3. Edit the markdown files in the `docs`, and configure the navigation menu in `mkdocs.yml` file.
+
 
 ## Contributors
 
 This template was created as part of the 2024 New Beginnings (pr05) Grant from the 
 [Processing Foundation](https://github.com/processing), to simplify the
-workflows for libraries, tools, and modes, mentored by [@Stefterv](https://github.com/stefterv), and lead by []().
+workflows for libraries, tools, and modes, mentored by [@Stefterv](https://github.com/stefterv).
 
 It is based on and inspired by a number of Processing library templates, including:
 - https://github.com/processing/processing-library-template-gradle
