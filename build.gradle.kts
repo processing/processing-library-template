@@ -73,9 +73,7 @@ val releaseName = libName
 val releaseDirectory = "$releaseRoot/$releaseName"
 
 // The location of your sketchbook folder. The sketchbook folder holds your installed libraries, tools, and modes
-// It is needed only if you
-// 1. wish to copy the library to the Processing sketchbook, such that you can import it in Processing
-// 2. have Processing library dependencies
+// Depending on your OS, it should set the correct location.
 // You can check the sketchbook location in your Processing application preferences.
 var sketchbookLocation = ""
 val userHome = System.getProperty("user.home")
@@ -118,7 +116,7 @@ tasks.javadoc.get().mustRunAfter("build")
 tasks.register("buildReleaseArtifacts") {
     group = "processing"
     dependsOn("clean","build","javadoc", "writeLibraryProperties")
-    finalizedBy("packageRelease", "copyZipToPdex")
+    finalizedBy("packageRelease", "duplicateZipToPdex")
 
     doFirst {
         println("Releasing library $libName")
@@ -179,6 +177,9 @@ tasks.register("buildReleaseArtifacts") {
 
 tasks.register<Zip>("packageRelease") {
     dependsOn("buildReleaseArtifacts")
+    doFirst {
+        println("Create zip file...")
+    }
     archiveFileName.set("${libName}.zip")
     from(releaseDirectory)
     into(releaseName)
@@ -187,6 +188,9 @@ tasks.register<Zip>("packageRelease") {
 }
 
 tasks.register<Copy>("duplicateZipToPdex") {
+    doFirst {
+        println("Duplicate zip file to pdex extension...")
+    }
     from(releaseRoot) {
         include("$libName.zip")
         rename("$libName.zip", "$libName.pdex")
@@ -197,18 +201,20 @@ tasks["duplicateZipToPdex"].mustRunAfter("packageRelease")
 
 tasks.register("deployToProcessingSketchbook") {
     group = "processing"
-    if (project.hasProperty("sketchbookLocation")) {
-        println("Copy to sketchbook...")
-        val installDirectory = "$sketchbookLocation/libraries/$libName"
-        copy {
-            from(releaseDirectory)
-            include("library.properties",
-                "examples/**",
-                "library/**",
-                "reference/**",
-                "src/**"
-            )
-            into(installDirectory)
-        }
+    dependsOn("buildReleaseArtifacts")
+
+    doFirst {
+        println("Copy to sketchbook  $sketchbookLocation ...")
+    }
+    val installDirectory = "$sketchbookLocation/libraries/$libName"
+    copy {
+        from(releaseDirectory)
+        include("library.properties",
+            "examples/**",
+            "library/**",
+            "reference/**",
+            "src/**"
+        )
+        into(installDirectory)
     }
 }
