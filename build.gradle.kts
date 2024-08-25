@@ -6,7 +6,6 @@
 import java.util.Properties
 import org.gradle.internal.os.OperatingSystem
 
-
 plugins {
     id("java")
 }
@@ -23,8 +22,7 @@ java {
 // Such as:
 // <libName>.jar will be the name of your build jar
 // <libName>.zip will be the name of your release file
-// this name defaults to the rootProject.name, which is set in settings.gradle.kts
-val libName = rootProject.name
+val libName = "myLibrary"
 
 
 //==========================
@@ -98,6 +96,9 @@ tasks.jar {
     archiveVersion.set("")
 }
 
+tasks.test {
+    useJUnitPlatform()
+}
 
 // ===========================
 // Tasks for releasing library
