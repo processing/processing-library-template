@@ -18,16 +18,16 @@ java {
     }
 }
 
+
+//==========================
+// USER BUILD CONFIGURATIONS
+//==========================
+
 // the short name of your library. This string will name relevant files and folders.
 // Such as:
 // <libName>.jar will be the name of your build jar
 // <libName>.zip will be the name of your release file
 val libName = "myLibrary"
-
-
-//==========================
-// USER BUILD CONFIGURATIONS
-//==========================
 
 // The group ID of your library, which uniquely identifies your project.
 // It's often written in reverse domain name notation.
