@@ -26,6 +26,28 @@ java {
 // this name defaults to the rootProject.name, which is set in settings.gradle.kts
 val libName = rootProject.name
 
+// The location of your sketchbook folder. The sketchbook folder holds your installed
+// libraries, tools, and modes. It is needed if you:
+// 1. wish to copy the library to the Processing sketchbook, which installs the library locally
+// 2. have Processing library dependencies
+// Depending on your OS, the code below should set the correct location, if you are using a Mac,
+// Windows, or Linux machine.
+// If you run the Gradle task deployToProcessingSketchbook, and you do not see your library
+// in the contributions manager, then one possible cause could be the sketchbook location
+// is wrong. You can check the sketchbook location in your Processing application preferences.
+var sketchbookLocation = ""
+val userHome = System.getProperty("user.home")
+val currentOS = OperatingSystem.current()
+if(currentOS.isMacOsX) {
+    sketchbookLocation = "$userHome/Documents/Processing/sketchbook"
+} else if(currentOS.isWindows) {
+    sketchbookLocation = "$userHome/My Documents/Processing/sketchbook"
+} else {
+    sketchbookLocation = "$userHome/sketchbook"
+}
+// If you need to set the sketchbook location manually, uncomment out the following
+// line and set sketchbookLocation to the correct location
+// sketchbookLocation = "$userHome/sketchbook"
 
 //==========================
 // USER BUILD CONFIGURATIONS
@@ -106,20 +128,6 @@ tasks.jar {
 val releaseRoot = "$rootDir/release"
 val releaseName = libName
 val releaseDirectory = "$releaseRoot/$releaseName"
-
-// The location of your sketchbook folder. The sketchbook folder holds your installed libraries, tools, and modes
-// Depending on your OS, it should set the correct location.
-// You can check the sketchbook location in your Processing application preferences.
-var sketchbookLocation = ""
-val userHome = System.getProperty("user.home")
-val currentOS = OperatingSystem.current()
-if(currentOS.isMacOsX) {
-    sketchbookLocation = "$userHome/Documents/Processing/sketchbook"
-} else if(currentOS.isWindows) {
-    sketchbookLocation = "$userHome/My Documents/Processing/sketchbook"
-} else {
-    sketchbookLocation = "$userHome/sketchbook"
-}
 
 // read in user-defined properties in release.properties file
 // to be saved in library.properties file, a required file in the release
