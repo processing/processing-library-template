@@ -49,6 +49,7 @@ if(currentOS.isMacOsX) {
 // line and set sketchbookLocation to the correct location
 // sketchbookLocation = "$userHome/sketchbook"
 
+
 //==========================
 // USER BUILD CONFIGURATIONS
 //==========================
