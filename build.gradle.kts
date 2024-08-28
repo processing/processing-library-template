@@ -26,6 +26,25 @@ java {
 // this name defaults to the rootProject.name, which is set in settings.gradle.kts
 val libName = rootProject.name
 
+
+//==========================
+// USER BUILD CONFIGURATIONS
+//==========================
+
+// The group ID of your library, which uniquely identifies your project.
+// It's often written in reverse domain name notation.
+// For example, if your website is "myDomain.com", your group ID might be "com.myDomain".
+// Replace "com.myDomain" with your own domain or organization name.
+group = "com.myDomain"
+
+// The version of your library. It usually follows semantic versioning (semver),
+// which uses three numbers separated by dots: "MAJOR.MINOR.PATCH" (e.g., "1.0.0").
+// - MAJOR: Increases when you make incompatible changes.
+// - MINOR: Increases when you add new features that are backward-compatible.
+// - PATCH: Increases when you make backward-compatible bug fixes.
+// You can update these numbers as you release new versions of your library.
+version = "1.0.0"
+
 // The location of your sketchbook folder. The sketchbook folder holds your installed
 // libraries, tools, and modes. It is needed if you:
 // 1. wish to copy the library to the Processing sketchbook, which installs the library locally
@@ -49,24 +68,6 @@ if(currentOS.isMacOsX) {
 // line and set sketchbookLocation to the correct location
 // sketchbookLocation = "$userHome/sketchbook"
 
-
-//==========================
-// USER BUILD CONFIGURATIONS
-//==========================
-
-// The group ID of your library, which uniquely identifies your project.
-// It's often written in reverse domain name notation.
-// For example, if your website is "myDomain.com", your group ID might be "com.myDomain".
-// Replace "com.myDomain" with your own domain or organization name.
-group = "com.myDomain"
-
-// The version of your library. It usually follows semantic versioning (semver),
-// which uses three numbers separated by dots: "MAJOR.MINOR.PATCH" (e.g., "1.0.0").
-// - MAJOR: Increases when you make incompatible changes.
-// - MINOR: Increases when you add new features that are backward-compatible.
-// - PATCH: Increases when you make backward-compatible bug fixes.
-// You can update these numbers as you release new versions of your library.
-version = "1.0.0"
 
 // Repositories where dependencies will be fetched from.
 // You can add additional repositories here if your dependencies are hosted elsewhere.
