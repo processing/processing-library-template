@@ -1,3 +1,8 @@
+// This Gradle script is designed to help you build and release your Processing library.
+// The section marked "USER BUILD CONFIGURATIONS" is intended for customization.
+// The rest of the script is responsible for the build process and should typically not be modified.
+
+
 import java.util.Properties
 import org.gradle.internal.os.OperatingSystem
 
@@ -6,8 +11,25 @@ plugins {
     id("java")
 }
 
+// Sets the Java version to use for compiling your library.
+// Processing4 was compiled with Java version 17, so it's recommended to compile your library with version 17.
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+// the short name of your library. This string will name relevant files and folders.
+// Such as:
+// <libName>.jar will be the name of your build jar
+// <libName>.zip will be the name of your release file
+// this name defaults to the rootProject.name, which is set in settings.gradle.kts
+val libName = rootProject.name
+
+
 //==========================
 // USER BUILD CONFIGURATIONS
+//==========================
 
 // The group ID of your library, which uniquely identifies your project.
 // It's often written in reverse domain name notation.
@@ -22,21 +44,6 @@ group = "com.myDomain"
 // - PATCH: Increases when you make backward-compatible bug fixes.
 // You can update these numbers as you release new versions of your library.
 version = "1.0.0"
-
-// the short name of your library. This string will name relevant files and folders.
-// Such as:
-// <libName>.jar will be the name of your build jar
-// <libName>.zip will be the name of your release file
-// this name defaults to the rootProject.name, which is set in settings.gradle.kts
-val libName = rootProject.name
-
-// Sets the Java version to use for compiling your library.
-// Processing4 was compiled with Java version 17, so it's recommended to compile your library with version 17.
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
-}
 
 // Repositories where dependencies will be fetched from.
 // You can add additional repositories here if your dependencies are hosted elsewhere.
@@ -69,6 +76,20 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
+tasks.test {
+    useJUnitPlatform()
+}
+
+//==============================
+// END USER BUILD CONFIGURATIONS
+//==============================
+
+
+// =============================
+// INTERNAL BUILD CONFIGURATIONS
+// Do not edit the following sections unless you know what you're doing.
+// =============================
+
 // Settings for how the JAR file (your library) will be built.
 // You want to name your jar with the library short name, aka libName.
 tasks.jar {
@@ -77,15 +98,10 @@ tasks.jar {
     archiveVersion.set("")
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
 
-// END USER BUILD CONFIGURATIONS
-//==============================
-
-//============================
+// ===========================
 // Tasks for releasing library
+// ===========================
 
 val releaseRoot = "$rootDir/release"
 val releaseName = libName
