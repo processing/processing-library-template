@@ -11,7 +11,7 @@ import org.apache.commons.math3.random.*;
 
 public class RandomCircles {
 	
-	// parent is a reference to the parent sketch, and to Processing
+	// parent is a reference to the parent sketch, and to Processing commands
 	PApplet parent;
 
 	/**
