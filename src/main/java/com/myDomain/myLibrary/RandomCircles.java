@@ -11,7 +11,7 @@ import org.apache.commons.math3.random.*;
 
 public class RandomCircles {
 	
-	// parent is a reference to the parent sketch
+	// parent is a reference to the parent sketch, and to Processing
 	PApplet parent;
 
 	/**
@@ -36,7 +36,8 @@ public class RandomCircles {
 		RandomVectorGenerator generator = new SobolSequenceGenerator(2);
 		for(int i=0; i<numCircles; i++) {
 			double[] randomVector = generator.nextVector();
-			// Processing commands and objects are accessible via this.parent
+			// Processing commands and objects are available in the PApplet class,
+			// via this.parent. Otherwise, they are not available.
 			this.parent.circle(
 					Math.round(randomVector[0]*this.parent.width),
 					Math.round(randomVector[1]*this.parent.height),
