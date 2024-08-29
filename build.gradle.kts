@@ -1,3 +1,8 @@
+// This Gradle script is designed to help you build and release your Processing library.
+// The section marked "USER BUILD CONFIGURATIONS" is intended for customization.
+// The rest of the script is responsible for the build process and should typically not be modified.
+
+
 import java.util.Properties
 import org.gradle.internal.os.OperatingSystem
 
@@ -6,28 +11,42 @@ plugins {
     id("java")
 }
 
-//==========================
-// USER BUILD CONFIGURATIONS
-
-// group id of your library. Often is reverse domain
-group = "com.example"
-
-// version of library, usually semver
-version = "1.0.0"
-
-// the short name of your library. This string will name relevant files and folders.
-// Such as:
-// <libName>.jar will be the name of your build jar
-// <libName>.zip will be the name of your release file
-// this name defaults to the rootProject.name
-val libName = rootProject.name
-
+// Sets the Java version to use for compiling your library.
+// Processing4 was compiled with Java version 17, so it's recommended to compile your library with version 17.
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
+// the short name of your library. This string will name relevant files and folders.
+// Such as:
+// <libName>.jar will be the name of your build jar
+// <libName>.zip will be the name of your release file
+// this name defaults to the rootProject.name, which is set in settings.gradle.kts
+val libName = rootProject.name
+
+
+//==========================
+// USER BUILD CONFIGURATIONS
+//==========================
+
+// The group ID of your library, which uniquely identifies your project.
+// It's often written in reverse domain name notation.
+// For example, if your website is "myDomain.com", your group ID might be "com.myDomain".
+// Replace "com.myDomain" with your own domain or organization name.
+group = "com.myDomain"
+
+// The version of your library. It usually follows semantic versioning (semver),
+// which uses three numbers separated by dots: "MAJOR.MINOR.PATCH" (e.g., "1.0.0").
+// - MAJOR: Increases when you make incompatible changes.
+// - MINOR: Increases when you add new features that are backward-compatible.
+// - PATCH: Increases when you make backward-compatible bug fixes.
+// You can update these numbers as you release new versions of your library.
+version = "1.0.0"
+
+// Repositories where dependencies will be fetched from.
+// You can add additional repositories here if your dependencies are hosted elsewhere.
 repositories {
     mavenCentral()
 
@@ -36,13 +55,18 @@ repositories {
     maven { url = uri("https://jogamp.org/deployment/maven/") }
 }
 
+// Add any external dependencies your library requires here.
+// The provided example uses Apache Commons Math. Replace or add as needed.
 dependencies {
     // resolve Processing core
     compileOnly("com.github.micycle1:processing-core-4:4.3.1")
+    // We are currently resolving from an unofficial, jitpack-enabled, processing4 repository.
+    // Eventually, this will change to an official source.
 
     // insert your external dependencies
     // TODO actually use dependency in library
     implementation("org.apache.commons:commons-math3:3.6.1")
+    // The provided example uses org.apache.commons:commons-math3. Replace or add as needed.
 
     // To add a dependency on a Processing library that is installed locally,
     // uncomment the line below, and replace <library folder> with the location of that library
@@ -52,30 +76,39 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
+tasks.test {
+    useJUnitPlatform()
+}
+
+//==============================
+// END USER BUILD CONFIGURATIONS
+//==============================
+
+
+// =============================
+// INTERNAL BUILD CONFIGURATIONS
+// Do not edit the following sections unless you know what you're doing.
+// =============================
+
+// Settings for how the JAR file (your library) will be built.
+// You want to name your jar with the library short name, aka libName.
 tasks.jar {
     archiveBaseName.set(libName)
     archiveClassifier.set("")
     archiveVersion.set("")
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
 
-// END USER BUILD CONFIGURATIONS
-//==============================
-
-//============================
+// ===========================
 // Tasks for releasing library
+// ===========================
 
 val releaseRoot = "$rootDir/release"
 val releaseName = libName
 val releaseDirectory = "$releaseRoot/$releaseName"
 
 // The location of your sketchbook folder. The sketchbook folder holds your installed libraries, tools, and modes
-// It is needed only if you
-// 1. wish to copy the library to the Processing sketchbook, such that you can import it in Processing
-// 2. have Processing library dependencies
+// Depending on your OS, it should set the correct location.
 // You can check the sketchbook location in your Processing application preferences.
 var sketchbookLocation = ""
 val userHome = System.getProperty("user.home")
@@ -118,7 +151,7 @@ tasks.javadoc.get().mustRunAfter("build")
 tasks.register("buildReleaseArtifacts") {
     group = "processing"
     dependsOn("clean","build","javadoc", "writeLibraryProperties")
-    finalizedBy("packageRelease", "copyZipToPdex")
+    finalizedBy("packageRelease", "duplicateZipToPdex")
 
     doFirst {
         println("Releasing library $libName")
@@ -179,6 +212,9 @@ tasks.register("buildReleaseArtifacts") {
 
 tasks.register<Zip>("packageRelease") {
     dependsOn("buildReleaseArtifacts")
+    doFirst {
+        println("Create zip file...")
+    }
     archiveFileName.set("${libName}.zip")
     from(releaseDirectory)
     into(releaseName)
@@ -187,6 +223,9 @@ tasks.register<Zip>("packageRelease") {
 }
 
 tasks.register<Copy>("duplicateZipToPdex") {
+    doFirst {
+        println("Duplicate zip file to pdex extension...")
+    }
     from(releaseRoot) {
         include("$libName.zip")
         rename("$libName.zip", "$libName.pdex")
@@ -197,18 +236,20 @@ tasks["duplicateZipToPdex"].mustRunAfter("packageRelease")
 
 tasks.register("deployToProcessingSketchbook") {
     group = "processing"
-    if (project.hasProperty("sketchbookLocation")) {
-        println("Copy to sketchbook...")
-        val installDirectory = "$sketchbookLocation/libraries/$libName"
-        copy {
-            from(releaseDirectory)
-            include("library.properties",
-                "examples/**",
-                "library/**",
-                "reference/**",
-                "src/**"
-            )
-            into(installDirectory)
-        }
+    dependsOn("buildReleaseArtifacts")
+
+    doFirst {
+        println("Copy to sketchbook  $sketchbookLocation ...")
+    }
+    val installDirectory = "$sketchbookLocation/libraries/$libName"
+    copy {
+        from(releaseDirectory)
+        include("library.properties",
+            "examples/**",
+            "library/**",
+            "reference/**",
+            "src/**"
+        )
+        into(installDirectory)
     }
 }
