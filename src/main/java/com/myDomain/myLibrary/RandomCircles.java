@@ -36,6 +36,7 @@ public class RandomCircles {
 		RandomVectorGenerator generator = new SobolSequenceGenerator(2);
 		for(int i=0; i<numCircles; i++) {
 			double[] randomVector = generator.nextVector();
+			// Processing commands and objects are accessible via this.parent
 			this.parent.circle(
 					Math.round(randomVector[0]*this.parent.width),
 					Math.round(randomVector[1]*this.parent.height),
