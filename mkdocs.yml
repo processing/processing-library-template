@@ -24,3 +24,5 @@ plugins:
 nav:
   - Home: index.md
   - Get Started: getting-started.md
+  - Go Deeper
+      - Gradle: go-deeper-on-gradle.md
