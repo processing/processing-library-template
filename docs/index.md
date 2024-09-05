@@ -5,8 +5,8 @@ It can be found on Github at https://github.com/mingness/processing-library-temp
 
 This documentation provides information on 
 1. [Getting started](getting-started.md)
-2. [The build process](build-process.md)
-3. [Releasing your library](releasing.md)
+2. [The development process](develop)
+3. [Releasing your library](release)
 4. [Troubleshooting](troubleshooting.md)
 
 

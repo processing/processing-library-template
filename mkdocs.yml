@@ -24,5 +24,6 @@ plugins:
 nav:
   - Home: index.md
   - Get Started: getting-started.md
-  - Go Deeper
-      - Gradle: go-deeper-on-gradle.md
+  - Develop: develop.md
+  - Release: release.md
+  - Troubleshooting: troubleshooting.md
