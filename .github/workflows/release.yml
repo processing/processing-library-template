@@ -7,6 +7,7 @@ on:
 
 jobs:
   release:
+    permissions: write-all
     runs-on: ubuntu-latest
     env:
       TAG_NAME: ${{ github.event.inputs.tag }}
@@ -24,10 +25,11 @@ jobs:
           gradle-version: 8.5
       - name: Build with Gradle
         id: build
-        run: gradle packageRelease
+        run: gradle buildReleaseArtifacts
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           files: |
+            release/*.txt
             release/*.zip
             release/*.pdex
