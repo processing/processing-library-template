@@ -1,16 +1,17 @@
 # The Development Process
 
-You're now ready to code up your library. To do this, you'll need to resolve dependencies,
+You're now ready to [develop your library](#developing-the-library). To do this, you'll need to resolve dependencies,
 in order to use them in your code. You do this by [adding your dependencies](#resolving-dependencies) 
 to the Gradle build file.
 
-Once you've finished [developing your library](#developing-the-library), you'll want to create example
-sketches that show how to use your library; these examples can be used to test the library
-in Processing. 
+Once you've finished developing your library, you'll want to test your library in Processing.
+To test your library in Processing, you'll want to first 
+[configure the build parameters](#configuring-the-gradle-build-file).
+Then, [create release artifacts and install them into Processing](#creating-the-release-artifacts),
 
-To test your library in Processing, you'll want to first [create release artifacts](#creating-the-release-artifacts),
-and then install them into Processing. These tasks are provided in the Gradle build file 
-`build.gradle.kts`. 
+To test your library in Processing, you'll need to run simple sketches. Please include simple 
+sketches that show how to use your library in the `examples` folder. The example sketch included
+in this template outputs the image shown on the home page.
 
 Also, existing references for developing libraries for Processing can be found on the following Github wiki pages:
 - https://github.com/benfry/processing4/wiki/Library-Basics

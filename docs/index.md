@@ -3,6 +3,8 @@
 The Processing Library Template is a template to help developers of Processing libraries to develop and release.
 It can be found on Github at https://github.com/mingness/processing-library-template.
 
+![example sketch output](./example_sketch_output.jpg)
+
 This documentation provides information on 
 1. [Getting started](getting-started.md)
 2. [The development process](develop)

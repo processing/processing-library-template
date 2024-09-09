@@ -46,6 +46,6 @@ You can use these interactions to test the library.
 Great, now you should be a little more familiar with the workings of the library template.
 
 Checkout some other guides on
-* [The build process](develop)
-* [Releasing your library](release)
-* [Troubleshooting](troubleshooting.md)
+1. [The development process](develop)
+2. [Releasing your library](release)
+3. [Troubleshooting](troubleshooting.md)
