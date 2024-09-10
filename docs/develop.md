@@ -15,9 +15,9 @@ in this template outputs the image shown on the home page.
 
 Also, existing references for developing libraries for Processing can be found on the following Github wiki pages:
 
-- https://github.com/benfry/processing4/wiki/Library-Basics
-- https://github.com/benfry/processing4/wiki/Library-Guidelines
-- https://github.com/benfry/processing4/wiki/Library-Overview
+- [https://github.com/benfry/processing4/wiki/Library-Basics](https://github.com/benfry/processing4/wiki/Library-Basics)
+- [https://github.com/benfry/processing4/wiki/Library-Guidelines](https://github.com/benfry/processing4/wiki/Library-Guidelines)
+- [https://github.com/benfry/processing4/wiki/Library-Overview](https://github.com/benfry/processing4/wiki/Library-Overview)
 
 Before following this guide, we recommend to follow the steps in the [getting started guide](getting-started.md)
 first.
