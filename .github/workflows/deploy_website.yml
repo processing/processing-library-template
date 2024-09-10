@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - 41-use-mkdocs-to-provide-documentation
 permissions:
   contents: write
 jobs:
