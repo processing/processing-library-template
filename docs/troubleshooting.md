@@ -1,6 +1,7 @@
 # Troubleshooting
 
 ## Library does not appear in the Contribution Manager
+
 1. Please check that the value you have for your library name in the code is the same as the `libName` in
    the `build.gradle.kts` file. 
 2. One possible issue is the location of your `sketchbook` folder. Processing stores installed libraries in 
@@ -13,5 +14,6 @@
 
 
 ## Dependency is not accessible in code
-1. If a dependency is not accessible in your code, you can check for errors in the build window in 
+
+1. If a dependency is not accessible in your code, check for errors in the build window in 
    Intellij (hammer icon), or run `Tasks` > `build` > `build`, and look for an error message.

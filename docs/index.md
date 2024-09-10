@@ -1,11 +1,12 @@
 # Processing Library Template
 
 The Processing Library Template is a template to help developers of Processing libraries to develop and release.
-It can be found on Github at https://github.com/mingness/processing-library-template.
+It can be found on Github at [https://github.com/mingness/processing-library-template](https://github.com/mingness/processing-library-template).
 
 ![example sketch output](./example_sketch_output.jpg)
 
-This documentation provides information on 
+This documentation provides information on
+
 1. [Getting started](getting-started.md)
 2. [The development process](develop)
 3. [Releasing your library](release)
@@ -14,6 +15,7 @@ This documentation provides information on
 
 ## References 
 Existing references for developing libraries for Processing can be found on the following Github wiki pages:
+
 - https://github.com/benfry/processing4/wiki/Library-Basics
 - https://github.com/benfry/processing4/wiki/Library-Guidelines
 - https://github.com/benfry/processing4/wiki/Library-Overview
@@ -26,6 +28,7 @@ This template was created as part of the 2024 New Beginnings (pr05) Grant from t
 workflows for libraries, tools, and modes, mentored by [@Stefterv](https://github.com/stefterv).
 
 It is based on and inspired by a number of Processing library templates, including:
+
 - https://github.com/processing/processing-library-template-gradle
 - https://github.com/enkatsu/processing-library-template-gradle
 - https://github.com/hamoid/processing-library-template/

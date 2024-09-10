@@ -14,6 +14,7 @@ sketches that show how to use your library in the `examples` folder. The example
 in this template outputs the image shown on the home page.
 
 Also, existing references for developing libraries for Processing can be found on the following Github wiki pages:
+
 - https://github.com/benfry/processing4/wiki/Library-Basics
 - https://github.com/benfry/processing4/wiki/Library-Guidelines
 - https://github.com/benfry/processing4/wiki/Library-Overview
@@ -91,6 +92,7 @@ those sections for [resolving dependencies](#resolving-dependencies).
 4. The `sketchbookLocation` is determined programmatically by your operation system, and is
    where your Processing `sketchbook` folder is. This folder contains your installed libraries.
    It is needed if you:
+
    1. wish to copy the library to the Processing sketchbook, which installs the library locally
    2. have Processing library dependencies
    

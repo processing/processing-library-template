@@ -4,6 +4,7 @@ You've written your library, created examples, and tested it in Processing. Now 
 and publish it.
 
 You'll want to:
+
 1. [create a documentation website](#creating-your-website), like the one you are reading now
 2. create a [release on Github](#release-on-github)
 3. Once you are ready to add your contribution to the Contribution Manager, 
@@ -22,6 +23,7 @@ If your library is on Github, then you can take advantage of Github Pages to dep
 We have configured a Github workflow at `.github/workflows/deploy-website.yml` that will process files
 in the `docs` folder with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and deploy it as a Github Page.
 The steps to deploying your MkDocs website with Github pages are below:
+
 1. You'll need to activate Github Pages and Github Actions for your project in the settings.
 2. In settings > Github Pages, set the Source to "Deploy from a branch."
    Set the branch to `gh-pages` ; this branch is created by the
