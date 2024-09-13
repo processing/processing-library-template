@@ -31,7 +31,7 @@ val libName = "myLibrary"
 
 // The group ID of your library, which uniquely identifies your project.
 // It's often written in reverse domain name notation.
-// For example, if your website is "myDomain.com", your group ID might be "com.myDomain".
+// For example, if your website is "myDomain.com", your group ID would be "com.myDomain".
 // Replace "com.myDomain" with your own domain or organization name.
 group = "com.myDomain"
 
@@ -81,14 +81,13 @@ repositories {
 // The provided example uses Apache Commons Math. Replace or add as needed.
 dependencies {
     // resolve Processing core
-    compileOnly("com.github.micycle1:processing-core-4:4.3.1")
+    compileOnly(group = "com.github.micycle1", name = "processing-core-4", version = "4.3.1")
     // We are currently resolving from an unofficial, jitpack-enabled, processing4 repository.
     // Eventually, this will change to an official source.
 
     // insert your external dependencies
-    // TODO actually use dependency in library
-    implementation("org.apache.commons:commons-math3:3.6.1")
-    // The provided example uses org.apache.commons:commons-math3. Replace or add as needed.
+    implementation(group = "org.apache.commons", name = "commons-math3", version = "3.6.1")
+    // The provided example uses commons-math3. Replace or add as needed.
 
     // To add a dependency on a Processing library that is installed locally,
     // uncomment the line below, and replace <library folder> with the location of that library
