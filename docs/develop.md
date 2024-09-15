@@ -38,21 +38,22 @@ be in the folder structure `src/main/java/com/myDomain/myLibrary/`.
 ## Resolving dependencies
 In the `build.gradle.kts` file, there are a few places you should edit, to input your own values.
 The part of the file that you are invited to edit is indicated by the comment 
-`USER BUILD CONFIGURATIONS`. We cover here how to add dependencies for your library. The 
+`USER BUILD CONFIGURATIONS`. We cover here how to add dependencies for your library. The relevant
 sections of the `build.gradle.kts` file are the `repositories` and `dependencies` sections.
 
 **The locations where dependencies will be resolved from are the `repositories`.** Most
 dependencies can be resolved from Maven. You can add additional repositories here if
 your dependencies are hosted elsewhere. 
 
-**Your dependencies should be listed within `dependencies`.** For example, the example
-library uses `org.apache.commons:commons-math3` as a dependency, which is resolved from
-your listed repositories. It is listed within `dependencies` with the following structure:
+**Your dependencies should be listed within `dependencies`.** For example, the example library
+uses the `commons-math3` package from `org.apache.commons` as a dependency, which is resolved
+from your listed repositories. It is listed within `dependencies` with the following structure:
+
 ```
-implementation("org.apache.commons:commons-math3:3.6.1")
+implementation(group = "org.apache.commons", name = "commons-math3", version = "3.6.1")
 ```
 
-This dependency, `org.apache.commons:commons-math3`, is only needed by the example library. 
+This dependency, `commons-math3`, is only needed by the example library. 
 You can delete this dependency for your own library. 
 Add your own dependencies using the same structure.
 
@@ -79,16 +80,20 @@ those sections for [resolving dependencies](#resolving-dependencies).
    Processing will not find your library.
 2. **Edit the variable `group` with your own domain or organization name.** The group id 
    of your library uniquely identifies your project. It's often written in reverse domain name 
-   notation. For example, if your website is "myDomain.com", your group ID would be "com.myDomain".
+   notation. For example, if your website is "myDomain.com", your group ID would be 
+   "com.myDomain". This group id should match the group id discussed in 
+   section [Developing the library](#developing-the-library).
 3. **Define the `version` of your library in `build.gradle.kts`.** This value will also be
    included in the release artifact `library.properties`. The version of your library usually 
    follows semantic versioning (semver), which uses three numbers separated by dots: 
    "MAJOR.MINOR.PATCH" (e.g., "1.0.0").
+
    - MAJOR: Increases when you make incompatible changes.
    - MINOR: Increases when you add new features that are backward-compatible.
    - PATCH: Increases when you make backward-compatible bug fixes.
    
    You will update these numbers as you release new versions of your library.
+
 4. The `sketchbookLocation` is determined programmatically by your operation system, and is
    where your Processing `sketchbook` folder is. This folder contains your installed libraries.
    It is needed if you:
