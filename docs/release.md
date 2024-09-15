@@ -35,6 +35,6 @@ The steps to deploying your MkDocs website with Github pages are below:
 Releasing on Github provides an easy reference for stable versions.
 Github provides [documentation on releasing projects](https://docs.github.com/en/repositories/releasing-projects-on-github).
 When creating your release, use a tag that starts with "v". This triggers a Github
-workflow that will automatically upload the necessary release artifacts, such as the
-`*.txt`, `*.zip`, `*.pdex` files in your `release` folder. Github by default will
-include compressed versions of your source code only.
+workflow (`.github/workflows/release.yml`) that will automatically upload the necessary 
+release artifacts, such as the `*.txt`, `*.zip`, `*.pdex` files in your `release` folder. 
+Github by default will include compressed versions of your source code only.
