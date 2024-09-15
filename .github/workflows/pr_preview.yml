@@ -1,14 +1,17 @@
-name: deploy_website
+name: Deploy PR preview
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
 permissions:
   contents: write
 
 jobs:
-  deploy:
-    concurrency: ci-${{ github.ref }}
+  deploy-preview:
+    concurrency: preview-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
@@ -23,12 +26,12 @@ jobs:
         run: pip install mkdocs-material
 
       - name: Build website
+        if: github.event.action != 'closed'
         run: mkdocs build
 
-      - name: Deploy website
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
         with:
-          folder: site
-          branch: gh-pages
-          clean-exclude: pr-preview
-          force: false
+          source-dir: site
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
