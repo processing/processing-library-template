@@ -88,9 +88,9 @@ those sections for [resolving dependencies](#resolving-dependencies).
    follows semantic versioning (semver), which uses three numbers separated by dots: 
    "MAJOR.MINOR.PATCH" (e.g., "1.0.0").
 
-   - MAJOR: Increases when you make incompatible changes.
-   - MINOR: Increases when you add new features that are backward-compatible.
-   - PATCH: Increases when you make backward-compatible bug fixes.
+    - MAJOR: Increases when you make incompatible changes.
+    - MINOR: Increases when you add new features that are backward-compatible.
+    - PATCH: Increases when you make backward-compatible bug fixes.
    
    You will update these numbers as you release new versions of your library.
 
@@ -98,8 +98,8 @@ those sections for [resolving dependencies](#resolving-dependencies).
    where your Processing `sketchbook` folder is. This folder contains your installed libraries.
    It is needed if you:
 
-   1. wish to copy the library to the Processing sketchbook, which installs the library locally
-   2. have Processing library dependencies
+    1. wish to copy the library to the Processing sketchbook, which installs the library locally
+    2. have Processing library dependencies
    
    This variable is in the editable section, in case the location determined is incorrect. A 
    symptom of an incorrect `sketchbookLocation` is that your library does not show up in the
@@ -122,12 +122,12 @@ already run Gradle tasks, and edited the `release.properties` file.
    This task will create a `release` folder with needed artifacts. To do this, go to the Gradle menu 
    (elephant), toggle `Tasks` > `processing` and double click `releaseProcessingLib`. This task 
    has bundled the following required tasks:
-   1. `build` task: this bundles a number of build tasks, including the `jar` task which creates a
+    1. `build` task: this bundles a number of build tasks, including the `jar` task which creates a
       jar file. all build artifacts are in the folder `build`.
-   2. documentation build.
-   3. creation of the `library.properties` file: this file is built from the properties set in the
+    2. documentation build.
+    3. creation of the `library.properties` file: this file is built from the properties set in the
       `release.properties` file, plus the version, in the task `writeLibraryProperties`.
-   4. within the `releaseProcessingLib` task, the `release` folder is created, jars of the library and
+    4. within the `releaseProcessingLib` task, the `release` folder is created, jars of the library and
       dependencies are copied, and the `library.properties` file is copied. Also, a zip file is made.
 3. When you would like to test your library in Processing, toggle `Tasks` > `processing` and double click
    `deployToProcessingSketchbook`, which will create the release artifacts, and copy them into the 
