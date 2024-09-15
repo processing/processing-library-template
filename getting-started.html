@@ -457,18 +457,21 @@ You can use these interactions to test the library.</p>
 <li><strong>Open up your new repository in your chosen IDE.</strong></li>
 <li><strong>Run the Gradle task, deployToProcessingSketchbook</strong>: The repository as is should build in Gradle. 
    In the Gradle menu (elephant) in your IDE, navigate to <code>Tasks</code> &gt; <code>processing</code> &gt; 
-   <code>deployToProcessingSketchbook</code>. This will run the Gradle task named <code>deployToProcessingSketchbook</code>.
+   <code>deployToProcessingSketchbook</code>, and double click on <code>deployToProcessingSketchbook</code>. 
+   This will run the Gradle task named <code>deployToProcessingSketchbook</code>.
    Running this task will build the library, create the release artifacts, and copy them into 
    where your installed libraries are stored.</li>
 <li><strong>The library can now be seen in the Contribution Manager.</strong> Open Processing, and click on 
    <code>Sketch</code> &gt; <code>Import Library ...</code> &gt; <code>Manage Libraries ...</code>. This opens the Contribution Manager. 
    There should be an entry named "A Template Example Library" with a check mark next to it. 
-   That is the entry for the new library. If the library does not appear in the Contribution 
+   That is the entry for the example library that was installed in the previous step. 
+   If the library does not appear in the Contribution 
    Manager, please check the <a href="troubleshooting.html">troubleshooting guide</a>.</li>
 <li><strong>Customize what will be shown in the Contribution Manager for your library</strong>:
    Open the file <code>release.properties</code> and change the value of the fields <code>name</code>, 
    <code>authors</code>, and <code>sentence</code>. Rerun the Gradle task, <code>deployToProcessingSketchbook</code>. This
-   will reinstall the library with the updated values.</li>
+   will reinstall the library with the updated values, and these values should be visible
+   in the Contribution Manager.</li>
 </ol>
 <h2 id="next-steps">Next Steps</h2>
 <p>Great, now you should be a little more familiar with the workings of the library template.</p>
