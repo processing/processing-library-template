@@ -1,5 +1,8 @@
 # Processing Library Template
-This is a template to help developers of Processing libraries to develop and release. 
+This is a template to help developers of Processing libraries to develop and release.
+
+Please read the [documentation website](https://mingness.github.io/processing-library-template/)
+for more information on how to use this template.
 
 Three important outputs are required to contribute a library to Processing, and this template provides 
 help and guidance on them. They are:
@@ -12,8 +15,6 @@ help and guidance on them. They are:
    release artifacts. If you host your code on Github, You can create a Github release that serves the 
    release artifacts.
 
-Please read the [documentation website](https://mingness.github.io/processing-library-template/)
-for more information on how to use this template.
 
 References for developing libraries for Processing can be found on the following Github wiki pages:
 - https://github.com/benfry/processing4/wiki/Library-Basics
