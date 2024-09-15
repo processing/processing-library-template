@@ -26,8 +26,7 @@ The steps to deploying your MkDocs website with Github pages are below:
 
 1. You'll need to activate Github Pages and Github Actions for your project in the settings.
 2. In settings > Github Pages, set the Source to "Deploy from a branch."
-   Set the branch to `gh-pages` ; this branch is created by the
-   command `mkdocs gh-deploy`. Serve from the root folder.
+   Set the branch to `gh-pages`. Serve from the root folder.
 3. Edit the markdown files in the `docs`, and configure the navigation menu in `mkdocs.yml` file.
 4. Include the url of your website in the property named `url` in the `release.properties`. 
 
