@@ -519,7 +519,7 @@ those sections for <a href="#resolving-dependencies">resolving dependencies</a>.
 <p><strong>Define the <code>version</code> of your library in <code>build.gradle.kts</code>.</strong> This value will also be
     included in the release artifact <code>library.properties</code>. The version of your library usually 
     follows semantic versioning (semver), which uses three numbers separated by dots: 
-    "MAJOR.MINOR.PATCH" (e.g., "1.0.0").</p>
+    "MAJOR.MINOR.PATCH" (e.g., "1.0.0"). </p>
 <ul>
 <li>MAJOR: Increases when you make incompatible changes.</li>
 <li>MINOR: Increases when you add new features that are backward-compatible.</li>
@@ -557,12 +557,12 @@ already run Gradle tasks, and edited the <code>release.properties</code> file.</
     (elephant), toggle <code>Tasks</code> &gt; <code>processing</code> and double click <code>releaseProcessingLib</code>. This task 
     has bundled the following required tasks:<ol>
 <li><code>build</code> task: this bundles a number of build tasks, including the <code>jar</code> task which creates a
-   jar file. all build artifacts are in the folder <code>build</code>.</li>
+    jar file. all build artifacts are in the folder <code>build</code>.</li>
 <li>documentation build.</li>
 <li>creation of the <code>library.properties</code> file: this file is built from the properties set in the
-  <code>release.properties</code> file, plus the version, in the task <code>writeLibraryProperties</code>.</li>
+   <code>release.properties</code> file, plus the version, in the task <code>writeLibraryProperties</code>.</li>
 <li>within the <code>releaseProcessingLib</code> task, the <code>release</code> folder is created, jars of the library and
-   dependencies are copied, and the <code>library.properties</code> file is copied. Also, a zip file is made.</li>
+    dependencies are copied, and the <code>library.properties</code> file is copied. Also, a zip file is made.</li>
 </ol>
 </li>
 <li>When you would like to test your library in Processing, toggle <code>Tasks</code> &gt; <code>processing</code> and double click
