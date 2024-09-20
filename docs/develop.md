@@ -1,26 +1,8 @@
 # The Development Process
 
-You're now ready to [develop your library](#developing-the-library). To do this, you'll need to resolve dependencies,
-in order to use them in your code. You do this by [adding your dependencies](#resolving-dependencies) 
-to the Gradle build file.
+You are now ready to develop your library. This guide will walk you through resolving dependencies, configuring the build, creating release artifacts, and testing your library in Processing.
 
-Once you've finished developing your library, you'll want to test your library in Processing.
-To test your library in Processing, you'll want to first 
-[configure the build parameters](#configuring-the-gradle-build-file).
-Then, [create release artifacts and install them into Processing](#creating-the-release-artifacts),
-
-To test your library in Processing, you'll need to run simple sketches. Please include simple 
-sketches that show how to use your library in the `examples` folder. The example sketch included
-in this template outputs the image shown on the home page.
-
-Also, existing references for developing libraries for Processing can be found on the following Github wiki pages:
-
-  - [https://github.com/benfry/processing4/wiki/Library-Basics](https://github.com/benfry/processing4/wiki/Library-Basics)
-  - [https://github.com/benfry/processing4/wiki/Library-Guidelines](https://github.com/benfry/processing4/wiki/Library-Guidelines)
-  - [https://github.com/benfry/processing4/wiki/Library-Overview](https://github.com/benfry/processing4/wiki/Library-Overview)
-
-Before following this guide, we recommend to follow the steps in the [getting started guide](getting-started.md)
-first.
+_Note: If you haven't set up your environment yet, refer to the [Getting Started guide](getting-started.md)._
 
 
 ## Developing the library
@@ -106,6 +88,10 @@ those sections for [resolving dependencies](#resolving-dependencies).
     Contribution Manager in Processing, after being installed. Please look at our 
     [troubleshooting guide](troubleshooting.md) if you suspect this is the case.
  
+## Creating examples
+Examples help users understand your library’s functionality, it is recommended that you include several clear and well-commented samples sketches in the `examples` folder.
+
+_Note: The example sketch included in this template outputs the image shown on the home page._
 
 ## Creating the release artifacts
 If you've already gone through the [Getting started](getting-started.md#first-steps) guide, you will have
@@ -132,3 +118,11 @@ already run Gradle tasks, and edited the `release.properties` file.
 3.  When you would like to test your library in Processing, toggle `Tasks` > `processing` and double click
     `deployToProcessingSketchbook`, which will create the release artifacts, and copy them into the 
     sketchbook folder.
+
+## Additional Documentation
+
+See the following guides for more details:
+
+  - [Library Overview](https://github.com/processing/processing4/wiki/Library-Overview): an introduction to Processing libraries in general.
+  - [Library Basics](https://github.com/processing/processing4/wiki/Library-Basics): a basic guide for creating a Processing library from scratch, including structuring the library, registering methods with PApplet, handling events, and preparing the library for distribution.
+  - [Library Guidelines](https://github.com/processing/processing4/wiki/Library-Guidelines): describes the requirements for a Processing library, including naming conventions, examples, and other best practices.
