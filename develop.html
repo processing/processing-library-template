@@ -315,9 +315,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#creating-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#creating-the-release-artifacts" class="md-nav__link">
     <span class="md-ellipsis">
       Creating the release artifacts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Documentation
     </span>
   </a>
   
@@ -425,9 +443,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#creating-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#creating-the-release-artifacts" class="md-nav__link">
     <span class="md-ellipsis">
       Creating the release artifacts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Documentation
     </span>
   </a>
   
@@ -449,24 +485,8 @@
 
 
 <h1 id="the-development-process">The Development Process</h1>
-<p>You're now ready to <a href="#developing-the-library">develop your library</a>. To do this, you'll need to resolve dependencies,
-in order to use them in your code. You do this by <a href="#resolving-dependencies">adding your dependencies</a> 
-to the Gradle build file.</p>
-<p>Once you've finished developing your library, you'll want to test your library in Processing.
-To test your library in Processing, you'll want to first 
-<a href="#configuring-the-gradle-build-file">configure the build parameters</a>.
-Then, <a href="#creating-the-release-artifacts">create release artifacts and install them into Processing</a>,</p>
-<p>To test your library in Processing, you'll need to run simple sketches. Please include simple 
-sketches that show how to use your library in the <code>examples</code> folder. The example sketch included
-in this template outputs the image shown on the home page.</p>
-<p>Also, existing references for developing libraries for Processing can be found on the following Github wiki pages:</p>
-<ul>
-<li><a href="https://github.com/benfry/processing4/wiki/Library-Basics">https://github.com/benfry/processing4/wiki/Library-Basics</a></li>
-<li><a href="https://github.com/benfry/processing4/wiki/Library-Guidelines">https://github.com/benfry/processing4/wiki/Library-Guidelines</a></li>
-<li><a href="https://github.com/benfry/processing4/wiki/Library-Overview">https://github.com/benfry/processing4/wiki/Library-Overview</a></li>
-</ul>
-<p>Before following this guide, we recommend to follow the steps in the <a href="getting-started.html">getting started guide</a>
-first.</p>
+<p>You are now ready to develop your library. This guide will walk you through resolving dependencies, configuring the build, creating release artifacts, and testing your library in Processing.</p>
+<p><em>Note: If you haven't set up your environment yet, refer to the <a href="getting-started.html">Getting Started guide</a>.</em></p>
 <h2 id="developing-the-library">Developing the library</h2>
 <p><strong>Develop your library within <code>src/main/java/</code>.</strong> Set the <code>package</code> at the top of your file to your
 own group id and library name, all together. For instance, in the example library, the group id is
@@ -541,6 +561,9 @@ Contribution Manager in Processing, after being installed. Please look at our
 <a href="troubleshooting.html">troubleshooting guide</a> if you suspect this is the case.</p>
 </li>
 </ol>
+<h2 id="creating-examples">Creating examples</h2>
+<p>Examples help users understand your library’s functionality, it is recommended that you include several clear and well-commented samples sketches in the <code>examples</code> folder.</p>
+<p><em>Note: The example sketch included in this template outputs the image shown on the home page.</em></p>
 <h2 id="creating-the-release-artifacts">Creating the release artifacts</h2>
 <p>If you've already gone through the <a href="getting-started.html#first-steps">Getting started</a> guide, you will have
 already run Gradle tasks, and edited the <code>release.properties</code> file.</p>
@@ -569,6 +592,13 @@ already run Gradle tasks, and edited the <code>release.properties</code> file.</
     <code>deployToProcessingSketchbook</code>, which will create the release artifacts, and copy them into the 
     sketchbook folder.</li>
 </ol>
+<h2 id="additional-documentation">Additional Documentation</h2>
+<p>See the following guides for more details:</p>
+<ul>
+<li><a href="https://github.com/processing/processing4/wiki/Library-Overview">Library Overview</a>: an introduction to Processing libraries in general.</li>
+<li><a href="https://github.com/processing/processing4/wiki/Library-Basics">Library Basics</a>: a basic guide for creating a Processing library from scratch, including structuring the library, registering methods with PApplet, handling events, and preparing the library for distribution.</li>
+<li><a href="https://github.com/processing/processing4/wiki/Library-Guidelines">Library Guidelines</a>: describes the requirements for a Processing library, including naming conventions, examples, and other best practices.</li>
+</ul>
 
 
 
