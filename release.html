@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.35">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.36">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.06209087.min.css">
       
       
 
@@ -308,18 +308,60 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creating-your-website" class="md-nav__link">
+  <a href="#creating-your-documentation-website" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating your website
+      Creating your Documentation Website
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating your Documentation Website">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuring-your-documentation-website" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring Your Documentation Website
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploying-your-documentation-on-github-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploying your Documentation on Github Pages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-hosting-and-static-site-generators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternative Hosting and Static Site Generators
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#releasing-on-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Releasing on Github
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#release-on-github" class="md-nav__link">
+  <a href="#publish-your-library-to-the-contribution-manager" class="md-nav__link">
     <span class="md-ellipsis">
-      Release on Github
+      Publish your Library to the Contribution Manager
     </span>
   </a>
   
@@ -380,18 +422,60 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creating-your-website" class="md-nav__link">
+  <a href="#creating-your-documentation-website" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating your website
+      Creating your Documentation Website
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating your Documentation Website">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuring-your-documentation-website" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring Your Documentation Website
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploying-your-documentation-on-github-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploying your Documentation on Github Pages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-hosting-and-static-site-generators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternative Hosting and Static Site Generators
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#releasing-on-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Releasing on Github
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#release-on-github" class="md-nav__link">
+  <a href="#publish-your-library-to-the-contribution-manager" class="md-nav__link">
     <span class="md-ellipsis">
-      Release on Github
+      Publish your Library to the Contribution Manager
     </span>
   </a>
   
@@ -415,37 +499,38 @@
 <h1 id="releasing-your-library">Releasing your library</h1>
 <p>You've written your library, created examples, and tested it in Processing. Now you are ready to release 
 and publish it.</p>
-<p>You'll want to:</p>
+<h2 id="creating-your-documentation-website">Creating your Documentation Website</h2>
+<p>To have your library listed on the Processing website and Contribution Manager, you need to create a  documentation website and host it at a stable URL. This library template includes a built-in way to create and publish a website for your library using <a href="https://squidfunk.github.io/mkdocs-material/">Material for Mkdocs</a> and Github Pages.</p>
+<h3 id="configuring-your-documentation-website">Configuring Your Documentation Website</h3>
+<p>Customize your website by updating the <code>mkdocs.yml</code> file. We have included some plugins, such as search, code block copy and annotations, and navigation bars. The navigation menu is configured in <code>mkdocs.yml</code> as well.</p>
+<p>To write your documentation, edit the Markdown files located in the <code>docs</code> folder. You can add new pages by creating additional Markdown files in the same folder, then add them to the menu in the <code>nav</code> section of the <code>mkdocs.yml</code> file.</p>
+<p>For examples of how Processing libraries use Material for MkDocs, see <a href="https://github.com/fredegd/EasyEase/blob/main/mkdocs.yml">EasyEase</a> or <a href="https://github.com/prontopablo/FIP/blob/main/mkdocs.yml">FIP</a></p>
+<h3 id="deploying-your-documentation-on-github-pages">Deploying your Documentation on Github Pages</h3>
+<p>This template include a workflow that automatically deploys your documentaion website to GitHub Pages. Here is how you can set this up for your repository:</p>
 <ol>
-<li><a href="#creating-your-website">create a documentation website</a>, like the one you are reading now</li>
-<li>create a <a href="#release-on-github">release on Github</a></li>
-<li>Once you are ready to add your contribution to the Contribution Manager, 
-email contributions@processing.org with the url to your release artifacts.</li>
+<li>Enable GitHub Pages and GitHub Actions in your repository settings: Under <strong>Settings &gt; GitHub Pages</strong>, set the source to "Deploy from a branch", choose the <code>gh-pages</code> branch, select the <code>/(root)</code> folder, and then click <strong>Save</strong>.</li>
+<li>Wait for the workflow to complete (this can take a few minutes). Once finished, your site’s URL will be displayed with the message "Your site is live at {{URL}}."</li>
+<li>Add your website URL to the <code>url</code> property in the <code>release.properties</code> file.</li>
 </ol>
-<h2 id="creating-your-website">Creating your website</h2>
-<p>A requirement for having your library listed officially is to have a stable documentation website.<br />
-<a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>, is a straightforward way of creating content.</p>
-<p>The configuration of the website is defined in the <code>mkdocs.yml</code> file. We have included some plugins, such
-as search, code block copy and annotations, and navigation bars. The navigation menu is configured in
-<code>mkdocs.yml</code> as well.</p>
-<p>If your library is on Github, then you can take advantage of Github Pages to deploy and host the website.
-We have configured a Github workflow at <code>.github/workflows/deploy-website.yml</code> that will process files
-in the <code>docs</code> folder with <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a> and deploy it as a Github Page.
-The steps to deploying your MkDocs website with Github pages are below:</p>
+<p>Any time you want to update the documentation, edit your <code>.md</code> files and <code>mkdocs.yml</code> as needed, then push your changes to <code>main</code>. This will trigger the workflow to deploy an update.</p>
+<p><em>Note: You can find the workflow file at <code>.github/workflows/deploy_website.yml</code>.</em></p>
+<h3 id="alternative-hosting-and-static-site-generators">Alternative Hosting and Static Site Generators</h3>
+<p>If you prefer not to use the built-in workflow with GitHub Pages and Material for MkDocs, you are free to use another static site generator or hosting service. Note that it’s important that the site remains online, as it serves as a reference for users of your library. </p>
+<h2 id="releasing-on-github">Releasing on Github</h2>
+<p>Releasing your library on GitHub allows users to access known-working versions of your library. Unlike the repository itself, which may contain ongoing development or experimental features, releases provide specific versions of your library that are ready for use. Here is how you can make a new release using this template:</p>
 <ol>
-<li>You'll need to activate Github Pages and Github Actions for your project in the settings.</li>
-<li>In settings &gt; Github Pages, set the Source to "Deploy from a branch."
-   Set the branch to <code>gh-pages</code>. Serve from the root folder.</li>
-<li>Edit the markdown files in the <code>docs</code>, and configure the navigation menu in <code>mkdocs.yml</code> file.</li>
-<li>Include the url of your website in the property named <code>url</code> in the <code>release.properties</code>. </li>
+<li>In your repository, click on <strong>Releases</strong>.</li>
+<li>Click <strong>Draft a new release</strong> to start.</li>
+<li>Click on <strong>Choose a tag</strong> a tag starting with "v" (e.g., <code>v1.0.0</code>). Make sure it matches the version set in your <code>release.properties</code> file.</li>
+<li>Select the branch you want to use for this release (e.g., <code>main</code>).</li>
+<li>Add a title and description for the release, highlighting key updates or changes.</li>
+<li>Click on <strong>Publish release</strong>. </li>
 </ol>
-<h2 id="release-on-github">Release on Github</h2>
-<p>Releasing on Github provides an easy reference for stable versions.
-Github provides <a href="https://docs.github.com/en/repositories/releasing-projects-on-github">documentation on releasing projects</a>.
-When creating your release, use a tag that starts with "v". This triggers a Github
-workflow (<code>.github/workflows/release.yml</code>) that will automatically upload the necessary 
-release artifacts, such as the <code>*.txt</code>, <code>*.zip</code>, <code>*.pdex</code> files in your <code>release</code> folder. 
-Github by default will include compressed versions of your source code only.</p>
+<p>This will trigger the GitHub workflow (<code>.github/workflows/release.yml</code>), which automatically create release artifacts—<code>*.txt</code>, <code>*.zip</code>, <code>*.pdex</code> files—and add them to the release.</p>
+<p><em>Note: By default, GitHub will also include compressed versions of your source code (e.g., <code>Source code (zip)</code> and <code>Source code (tar.gz)</code>).</em></p>
+<p>For more details on releases, see GitHub’s <a href="https://docs.github.com/en/repositories/releasing-projects-on-github">official guide on releasing projects</a>.</p>
+<h2 id="publish-your-library-to-the-contribution-manager">Publish your Library to the Contribution Manager</h2>
+<p>Once you are ready to add your contribution to the Contribution Manager, email <a href="mailto:contributions@processing.org">contributions@processing.org</a> with the url to your releases page. It should look something like <code>https://github.com/{{username}}/{{repository}}/releases/</code>. A Processing maintainer will review and publish your contribution. You may be asked for more information about your contribution or some modifications if needed.</p>
 
 
 
