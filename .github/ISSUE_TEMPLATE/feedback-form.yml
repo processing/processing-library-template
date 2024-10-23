@@ -1,6 +1,6 @@
 name: "🙋‍♀️ Processing Library Template Feedback"
 description: "Provide feedback on your experience using the Processing library template."
-title: "[Feedback] Your experience with the Processing library template"
+title: "Summarize your feedback"
 labels: ["feedback"]
 body:
   - type: markdown
