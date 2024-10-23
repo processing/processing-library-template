@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for trying this version of the Processing library template. We're interested in Please answer the following questions to provide feedback.
+        Thanks for trying this version of the Processing library template. Your answers will help us improve this template for you and others. Thanks in advance for your feedback!
   - type: textarea
     id: experience
     attributes:
