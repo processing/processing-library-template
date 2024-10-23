@@ -7,7 +7,7 @@ This guide will help you set up your development environment and start building 
 ## Setting up the environment
 Follow these steps to create your own repository on GitHub and install the necessary tools.
 
-1. **Create a new Github repository** using the [processing-library-template](https://github.com/mingness/processing-library-template)
+1. **Create a new Github repository** using the [processing-library-template](https://github.com/processing/processing-library-template)
    as a base.
    (See: [How to create a repository from a template.](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template))
    Choose a name that reflects the library you're building. Make sure to read about Processing's [naming rules for libraries](https://github.com/benfry/processing4/wiki/Library-Basics#library-naming-rules). You can always rename the repository later.
