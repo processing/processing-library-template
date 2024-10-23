@@ -21,6 +21,8 @@ References for developing libraries for Processing can be found on the following
 - https://github.com/benfry/processing4/wiki/Library-Guidelines
 - https://github.com/benfry/processing4/wiki/Library-Overview
 
+> [!Note]
+> This template is based on Gradle. If you are looking for the old Ant-based template, see [processing/processing-library-template-ant](processing/processing-library-template-ant)
 
 ## Contributors
 
