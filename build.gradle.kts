@@ -50,15 +50,28 @@ version = "1.0.0"
 // Depending on your OS, the code below should set the correct location, if you are using a Mac,
 // Windows, or Linux machine.
 // If you run the Gradle task deployToProcessingSketchbook, and you do not see your library
-// in the contributions manager, then one possible cause could be the sketchbook location
+// listed as a contributed library, then one possible cause could be the sketchbook location
 // is wrong. You can check the sketchbook location in your Processing application preferences.
 var sketchbookLocation = ""
 val userHome = System.getProperty("user.home")
 val currentOS = OperatingSystem.current()
 if(currentOS.isMacOsX) {
-    sketchbookLocation = "$userHome/Documents/Processing/sketchbook"
+    sketchbookLocation = if (File("$userHome/Documents/Processing/sketchbook").isDirectory) {
+        "$userHome/Documents/Processing/sketchbook"
+    } else {
+        "$userHome/Documents/Processing"
+    }
 } else if(currentOS.isWindows) {
-    sketchbookLocation = "$userHome/My Documents/Processing/sketchbook"
+    val docsFolder = if (File("$userHome/My Documents").isDirectory) {
+        "$userHome/My Documents"
+    } else {
+        "$userHome/Documents"
+    }
+    sketchbookLocation = if (File(docsFolder,"Processing/sketchbook").isDirectory) {
+        "$docsFolder/Processing/sketchbook"
+    } else {
+        "$docsFolder/Processing"
+    }
 } else {
     sketchbookLocation = "$userHome/sketchbook"
 }
