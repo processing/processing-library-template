@@ -84,19 +84,13 @@ if(currentOS.isMacOsX) {
 // You can add additional repositories here if your dependencies are hosted elsewhere.
 repositories {
     mavenCentral()
-
-    // these two are needed to resolve processing4 from micycle1's repo
-    maven { url = uri("https://jitpack.io") }
-    maven { url = uri("https://jogamp.org/deployment/maven/") }
 }
 
 // Add any external dependencies your library requires here.
 // The provided example uses Apache Commons Math. Replace or add as needed.
 dependencies {
     // resolve Processing core
-    compileOnly(group = "com.github.micycle1", name = "processing-core-4", version = "4.3.1")
-    // We are currently resolving from an unofficial, jitpack-enabled, processing4 repository.
-    // Eventually, this will change to an official source.
+    compileOnly(group = "org.processing", name = "core", version = "4.3.1")
 
     // insert your external dependencies
     implementation(group = "org.apache.commons", name = "commons-math3", version = "3.6.1")
