@@ -16,9 +16,9 @@ This documentation provides information on
 ## References 
 Existing references for developing libraries for Processing can be found on the following Github wiki pages:
 
-- [https://github.com/benfry/processing4/wiki/Library-Basics](https://github.com/benfry/processing4/wiki/Library-Basics)
-- [https://github.com/benfry/processing4/wiki/Library-Guidelines](https://github.com/benfry/processing4/wiki/Library-Guidelines)
-- [https://github.com/benfry/processing4/wiki/Library-Overview](https://github.com/benfry/processing4/wiki/Library-Overview)
+- [https://github.com/processing/processing4/wiki/Library-Basics](https://github.com/benfry/processing4/wiki/Library-Basics)
+- [https://github.com/processing/processing4/wiki/Library-Guidelines](https://github.com/benfry/processing4/wiki/Library-Guidelines)
+- [https://github.com/processing/processing4/wiki/Library-Overview](https://github.com/benfry/processing4/wiki/Library-Overview)
 
 
 ## Contributors
