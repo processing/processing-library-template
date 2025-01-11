@@ -27,10 +27,9 @@ Now that your environment is set up, follow these steps to get familiar with the
    `deployToProcessingSketchbook`, and double click on `deployToProcessingSketchbook`. 
    - This will build the library, create the release artifacts, and copy them to the folder 
    where Processing libraries are stored.
-3. **Check if the library appears in the Contribution Manager:** 
-   - Open Processing, and click on `Sketch` > `Import Library ...` > `Manage Libraries ...`. 
-   This opens the Contribution Manager. 
-   - You should see an entry named "A Template Example Library" with a check mark next to it. 
+3. **Check if the library appears as a contributed library:** 
+   - Open Processing, and click on `Sketch` > `Import Library ...`.
+   - You should see an entry named "A Template Example Library" in the menu as `Contributed`. 
    This is the sample library you just installed using the template. 
    - If it does not appear, please check the [troubleshooting guide](troubleshooting.md).
 4. **Customize the library information**:
