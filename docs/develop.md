@@ -84,8 +84,8 @@ those sections for [resolving dependencies](#resolving-dependencies).
     2. have Processing library dependencies
    
     This variable is in the editable section, in case the location determined is incorrect. A 
-    symptom of an incorrect `sketchbookLocation` is that your library does not show up in the
-    Contribution Manager in Processing, after being installed. Please look at our 
+    symptom of an incorrect `sketchbookLocation` is that your library does not show up as a
+    contributed library Processing, after being installed. Please look at our 
     [troubleshooting guide](troubleshooting.md) if you suspect this is the case.
  
 ## Creating examples

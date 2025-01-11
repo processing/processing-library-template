@@ -1,6 +1,6 @@
 # Troubleshooting
 
-## Library does not appear in the Contribution Manager
+## Library does not appear as contributed library in Processing
 
 1. Please check that the value you have for your library name in the code is the same as the `libName` in
    the `build.gradle.kts` file. 
