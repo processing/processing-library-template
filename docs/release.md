@@ -46,4 +46,9 @@ _Note: By default, GitHub will also include compressed versions of your source c
 For more details on releases, see GitHub’s [official guide on releasing projects](https://docs.github.com/en/repositories/releasing-projects-on-github).
 
 ## Publish your Library to the Contribution Manager
-Once you are ready to add your contribution to the Contribution Manager, email [contributions@processing.org](mailto:contributions@processing.org) with the url to your releases page. It should look something like `https://github.com/{{username}}/{{repository}}/releases/`. A Processing maintainer will review and publish your contribution. You may be asked for more information about your contribution or some modifications if needed.
+Once you are ready to add your contribution to the Contribution Manager, submit your contribution to the
+[processing-contributions](https://github.com/processing/processing-contributions) repository using our 
+[issue form](https://github.com/processing/processing-contributions/issues/new?assignees=&labels=new-contribution&projects=&template=1_new-library.yml)
+You will need the url to your releases page. 
+It should look something like `https://github.com/{{username}}/{{repository}}/releases/`. 
+A Processing maintainer will review and publish your contribution. You may be asked for more information about your contribution or some modifications if needed.
