@@ -84,6 +84,7 @@ if(currentOS.isMacOsX) {
 // You can add additional repositories here if your dependencies are hosted elsewhere.
 repositories {
     mavenCentral()
+    maven { url = uri("https://jogamp.org/deployment/maven/") }
 }
 
 // Add any external dependencies your library requires here.
