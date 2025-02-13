@@ -16,6 +16,9 @@ Intellij and Visual Studio Code will then direct you to move your code into nest
 with your package name. For instance, if the package is `com.myDomain.myLibrary`, the code will
 be in the folder structure `src/main/java/com/myDomain/myLibrary/`.
 
+If you would like to use Processing functionality in your library, you can do so by importing Processing core
+and referencing Processing objects from the PApplet instance. An example of how to do this is given in the
+example library in this template.
 
 ## Resolving dependencies
 In the `build.gradle.kts` file, there are a few places you should edit, to input your own values.
@@ -27,17 +30,12 @@ sections of the `build.gradle.kts` file are the `repositories` and `dependencies
 dependencies can be resolved from Maven. You can add additional repositories here if
 your dependencies are hosted elsewhere. 
 
-**Your dependencies should be listed within `dependencies`.** For example, the example library
-uses the `commons-math3` package from `org.apache.commons` as a dependency, which is resolved
-from your listed repositories. It is listed within `dependencies` with the following structure:
+**Your dependencies should be listed within `dependencies`.** For example, if the example library
+were to use the `commons-math3` package from `org.apache.commons` as a dependency, it would be listed within `dependencies` with the following structure:
 
 ```
 implementation(group = "org.apache.commons", name = "commons-math3", version = "3.6.1")
 ```
-
-This dependency, `commons-math3`, is only needed by the example library. 
-You can delete this dependency for your own library. 
-Add your own dependencies using the same structure.
 
 NOTE: Dependencies added with `implementation` will be included in the release. Dependencies
 added with `compileOnly`, such as Processing core, are available for compilation, but won't
