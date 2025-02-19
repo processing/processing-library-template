@@ -39,3 +39,5 @@ It is based on and inspired by a number of Processing library templates, includi
 I wish to thank the developers of these repositories, who generously provided
 guidance and time. This template has been developed in collaboration with
 [@enkatsu](https://github.com/enkatsu).
+
+The example library was developed by Stig Møller Hansen ([@stixan](https://github.com/stixan)).

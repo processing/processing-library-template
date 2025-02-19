@@ -94,8 +94,8 @@ dependencies {
     compileOnly(group = "org.processing", name = "core", version = "4.3.1")
 
     // insert your external dependencies
-    implementation(group = "org.apache.commons", name = "commons-math3", version = "3.6.1")
-    // The provided example uses commons-math3. Replace or add as needed.
+    // For example uncomment the following line to declare commons-math3 as a dependency.
+    // implementation(group = "org.apache.commons", name = "commons-math3", version = "3.6.1")
 
     // To add a dependency on a Processing library that is installed locally,
     // uncomment the line below, and replace <library folder> with the location of that library
