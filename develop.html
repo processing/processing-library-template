@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.8608ea7d.min.css">
       
       
 
@@ -207,6 +207,7 @@
   
   <span class="md-ellipsis">
     Home
+    
   </span>
   
 
@@ -227,6 +228,7 @@
   
   <span class="md-ellipsis">
     Get Started
+    
   </span>
   
 
@@ -256,6 +258,7 @@
   
   <span class="md-ellipsis">
     Develop
+    
   </span>
   
 
@@ -267,6 +270,7 @@
   
   <span class="md-ellipsis">
     Develop
+    
   </span>
   
 
@@ -361,6 +365,7 @@
   
   <span class="md-ellipsis">
     Release
+    
   </span>
   
 
@@ -381,6 +386,7 @@
   
   <span class="md-ellipsis">
     Troubleshooting
+    
   </span>
   
 
@@ -484,6 +490,7 @@
                   
 
 
+
 <h1 id="the-development-process">The Development Process</h1>
 <p>You are now ready to develop your library. This guide will walk you through resolving dependencies, configuring the build, creating release artifacts, and testing your library in Processing.</p>
 <p><em>Note: If you haven't set up your environment yet, refer to the <a href="getting-started.html">Getting Started guide</a>.</em></p>
@@ -496,6 +503,9 @@ More on this in <a href="#configuring-the-gradle-build-file">Configuring the Gra
 <p>Intellij and Visual Studio Code will then direct you to move your code into nested folders, consistent
 with your package name. For instance, if the package is <code>com.myDomain.myLibrary</code>, the code will
 be in the folder structure <code>src/main/java/com/myDomain/myLibrary/</code>.</p>
+<p>If you would like to use Processing functionality in your library, you can do so by importing Processing core
+and referencing Processing objects from the PApplet instance. An example of how to do this is given in the
+example library in this template.</p>
 <h2 id="resolving-dependencies">Resolving dependencies</h2>
 <p>In the <code>build.gradle.kts</code> file, there are a few places you should edit, to input your own values.
 The part of the file that you are invited to edit is indicated by the comment 
@@ -504,14 +514,10 @@ sections of the <code>build.gradle.kts</code> file are the <code>repositories</c
 <p><strong>The locations where dependencies will be resolved from are the <code>repositories</code>.</strong> Most
 dependencies can be resolved from Maven. You can add additional repositories here if
 your dependencies are hosted elsewhere. </p>
-<p><strong>Your dependencies should be listed within <code>dependencies</code>.</strong> For example, the example library
-uses the <code>commons-math3</code> package from <code>org.apache.commons</code> as a dependency, which is resolved
-from your listed repositories. It is listed within <code>dependencies</code> with the following structure:</p>
+<p><strong>Your dependencies should be listed within <code>dependencies</code>.</strong> For example, if the example library
+were to use the <code>commons-math3</code> package from <code>org.apache.commons</code> as a dependency, it would be listed within <code>dependencies</code> with the following structure:</p>
 <pre><code>implementation(group = &quot;org.apache.commons&quot;, name = &quot;commons-math3&quot;, version = &quot;3.6.1&quot;)
 </code></pre>
-<p>This dependency, <code>commons-math3</code>, is only needed by the example library. 
-You can delete this dependency for your own library. 
-Add your own dependencies using the same structure.</p>
 <p>NOTE: Dependencies added with <code>implementation</code> will be included in the release. Dependencies
 added with <code>compileOnly</code>, such as Processing core, are available for compilation, but won't
 be included in the release.</p>
@@ -695,10 +701,10 @@ already run Gradle tasks, and edited the <code>release.properties</code> file.</
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.select", "content.code.highlight", "content.code.annotate", "navigation.top", "navigation.footer"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.select", "content.code.highlight", "content.code.annotate", "navigation.top", "navigation.footer"], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      <script src="assets/javascripts/bundle.f1b6f286.min.js"></script>
       
     
   </body>
