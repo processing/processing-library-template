@@ -25,7 +25,7 @@ jobs:
           gradle-version: 8.5
       - name: Build with Gradle
         id: build
-        run: gradle buildReleaseArtifacts
+        run: gradle -Pversion=${{ github.event.release.tag_name }} buildReleaseArtifacts
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
