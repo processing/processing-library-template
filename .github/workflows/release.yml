@@ -6,7 +6,6 @@ on:
       - release-version-in-txt
     tags:
       - 'v*'
-      - 'test*'
 
 jobs:
   release:
@@ -28,7 +27,7 @@ jobs:
           gradle-version: 8.5
       - name: Build with Gradle
         id: build
-        run: gradle -Pversion=${{ github.event.release.tag_name }} buildReleaseArtifacts
+        run: gradle -Pversion=v-tag-manual buildReleaseArtifacts
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
