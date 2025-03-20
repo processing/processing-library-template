@@ -25,7 +25,7 @@ This template include a workflow that automatically deploys your documentaion we
 Any time you want to update the documentation, edit your `.md` files and `mkdocs.yml` as needed, then push your changes to `main`. This will trigger the workflow to deploy an update.
 
 !!! Note
-    You can find the workflow file at `.github/workflows/deploy_website.yml`._
+    You can find the workflow file at `.github/workflows/deploy_website.yml`.
 
 ### Alternative Hosting and Static Site Generators
 If you prefer not to use the built-in workflow with GitHub Pages and Material for MkDocs, you are free to use another static site generator or hosting service. Note that it’s important that the site remains online, as it serves as a reference for users of your library. 
@@ -43,7 +43,7 @@ Releasing your library on GitHub allows users to access known-working versions o
 This will trigger the GitHub workflow (`.github/workflows/release.yml`), which automatically create release artifacts—`*.txt`, `*.zip`, `*.pdex` files—and add them to the release.
 
 !!! Note
-    By default, GitHub will also include compressed versions of your source code (e.g., `Source code (zip)` and `Source code (tar.gz)`)._
+    By default, GitHub will also include compressed versions of your source code (e.g., `Source code (zip)` and `Source code (tar.gz)`).
 
 For more details on releases, see GitHub’s [official guide on releasing projects](https://docs.github.com/en/repositories/releasing-projects-on-github).
 

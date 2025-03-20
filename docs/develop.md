@@ -3,7 +3,7 @@
 You are now ready to develop your library. This guide will walk you through resolving dependencies, configuring the build, creating release artifacts, and testing your library in Processing.
 
 !!! Note
-    If you haven't set up your environment yet, refer to the [Getting Started guide](getting-started.md)._
+    If you haven't set up your environment yet, refer to the [Getting Started guide](getting-started.md).
 
 
 ## Developing the library
@@ -92,7 +92,7 @@ those sections for [resolving dependencies](#resolving-dependencies).
 Examples help users understand your library’s functionality, it is recommended that you include several clear and well-commented samples sketches in the `examples` folder.
 
 !!! Note
-    The example sketch included in this template outputs the image shown on the home page._
+    The example sketch included in this template outputs the image shown on the home page.
 
 ## Creating the release artifacts
 If you've already gone through the [Getting started](getting-started.md#first-steps) guide, you will have
