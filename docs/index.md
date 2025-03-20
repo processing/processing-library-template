@@ -12,6 +12,8 @@ This documentation provides information on
 3. [Releasing your library](release)
 4. [Troubleshooting](troubleshooting.md)
 
+!!! note
+    This template is based on Gradle. If you are looking for the old Ant-based template, see processing/processing-library-template-ant
 
 ## References 
 Existing references for developing libraries for Processing can be found on the following Github wiki pages:
