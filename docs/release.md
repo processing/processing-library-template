@@ -39,7 +39,10 @@ Releasing your library on GitHub allows users to access known-working versions o
 5. Add a title and description for the release, highlighting key updates or changes.
 6. Click on **Publish release**. 
 
-This will trigger the GitHub workflow (`.github/workflows/release.yml`), which automatically create release artifacts—`*.txt`, `*.zip`, `*.pdex` files—and add them to the release.
+This will trigger the GitHub workflow (`.github/workflows/release.yml`), which automatically create release artifacts—`*.txt`, `*.zip`, `*.pdex` files—and add them to the release. 
+
+!!! Important
+    The release tag created on Github will be propagated to the release artifacts, specifically the `prettyVersion` in the txt file and `library.properties` file in the zip. This overwrites the value input for `version` in the `build.gradle.kts` file.
 
 _Note: By default, GitHub will also include compressed versions of your source code (e.g., `Source code (zip)` and `Source code (tar.gz)`)._
 
