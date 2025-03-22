@@ -42,12 +42,18 @@ group = "com.myDomain"
 // - PATCH: Increases when you make backward-compatible bug fixes.
 // You can update these numbers as you release new versions of your library.
 // the following conditional allows for the version to be overwritten by a Github release
-// via the release workflow, which defines a property named "prettyVersion"
+// via the release workflow, which defines a property named "githubReleaseTag"
 
-if (project.hasProperty("prettyVersion")) {
-    version = project.property("prettyVersion").toString().trimStart('v')
+version = if (project.hasProperty("githubReleaseTag")) {
+    // remove leading "v" from tag if present
+    if (project.property("githubReleaseTag").toString().substring(0,1) == "v") {
+        project.property("githubReleaseTag").toString().drop(1)
+    } else {
+        project.property("githubReleaseTag").toString()
+    }
+
 } else {
-    version = "1.0.0"
+    "1.0.0"
 }
 
 // The location of your sketchbook folder. The sketchbook folder holds your installed
