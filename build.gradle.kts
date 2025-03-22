@@ -274,8 +274,6 @@ tasks.register("deployToProcessingSketchbook") {
                 )
             }
             into(installDirectory)
-            duplicatesStrategy = DuplicatesStrategy.INCLUDE
         }
-       
     }
 }
