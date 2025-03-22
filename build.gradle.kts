@@ -41,16 +41,13 @@ group = "com.myDomain"
 // - MINOR: Increases when you add new features that are backward-compatible.
 // - PATCH: Increases when you make backward-compatible bug fixes.
 // You can update these numbers as you release new versions of your library.
+
 // the following conditional allows for the version to be overwritten by a Github release
 // via the release workflow, which defines a property named "githubReleaseTag"
 
 version = if (project.hasProperty("githubReleaseTag")) {
-    // remove leading "v" from tag if present
-    if (project.property("githubReleaseTag").toString().substring(0,1) == "v") {
-        project.property("githubReleaseTag").toString().drop(1)
-    } else {
-        project.property("githubReleaseTag").toString()
-    }
+    // remove leading "v" from tag (the leading "v" is required for the release workflow to trigger)
+    project.property("githubReleaseTag").toString().drop(1)
 
 } else {
     "1.0.0"

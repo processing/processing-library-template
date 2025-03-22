@@ -65,7 +65,19 @@ those sections for [resolving dependencies](#resolving-dependencies).
     notation. For example, if your website is "myDomain.com", your group ID would be 
     "com.myDomain". This group id should match the group id discussed in 
     section [Developing the library](#developing-the-library).
-3.  **Define the `version` of your library in `build.gradle.kts`.** This value will also be
+3.  The `sketchbookLocation` is determined programmatically by your operation system, and is
+    where your Processing `sketchbook` folder is. This folder contains your installed libraries.
+    It is needed if you:
+
+    1. wish to copy the library to the Processing sketchbook, which installs the library locally
+    2. have Processing library dependencies
+
+    This variable is in the editable section, in case the location determined is incorrect. A
+    symptom of an incorrect `sketchbookLocation` is that your library does not show up as a
+    contributed library Processing, after being installed. Please look at our
+    [troubleshooting guide](troubleshooting.md) if you suspect this is the case.
+
+4. **Define the `version` of your library in `build.gradle.kts`.** This value will also be
     included in the release artifact `library.properties`. The version of your library usually 
     follows semantic versioning (semver), which uses three numbers separated by dots: 
     "MAJOR.MINOR.PATCH" (e.g., "1.0.0"). 
@@ -76,18 +88,10 @@ those sections for [resolving dependencies](#resolving-dependencies).
 
     You will update these numbers as you release new versions of your library.
 
-4.  The `sketchbookLocation` is determined programmatically by your operation system, and is
-    where your Processing `sketchbook` folder is. This folder contains your installed libraries.
-    It is needed if you:
+!!! Note
+    If you [release your library on Github](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository),
+    the prettyVersion field in your release artifacts will reflect your release tag instead of the `version` defined in `build.gradle.kts`, as a helpful automation.
 
-    1. wish to copy the library to the Processing sketchbook, which installs the library locally
-    2. have Processing library dependencies
-   
-    This variable is in the editable section, in case the location determined is incorrect. A 
-    symptom of an incorrect `sketchbookLocation` is that your library does not show up as a
-    contributed library Processing, after being installed. Please look at our 
-    [troubleshooting guide](troubleshooting.md) if you suspect this is the case.
- 
 ## Creating examples
 Examples help users understand your library’s functionality, it is recommended that you include several clear and well-commented samples sketches in the `examples` folder.
 
