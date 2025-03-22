@@ -41,7 +41,14 @@ group = "com.myDomain"
 // - MINOR: Increases when you add new features that are backward-compatible.
 // - PATCH: Increases when you make backward-compatible bug fixes.
 // You can update these numbers as you release new versions of your library.
-version = "1.0.0"
+// the following conditional allows for the version to be overwritten by a Github release
+// via the release workflow, which defines a property named "prettyVersion"
+
+if (project.hasProperty("prettyVersion")) {
+    version = project.property("prettyVersion").toString().trimStart('v')
+} else {
+    version = "1.0.0"
+}
 
 // The location of your sketchbook folder. The sketchbook folder holds your installed
 // libraries, tools, and modes. It is needed if you:
