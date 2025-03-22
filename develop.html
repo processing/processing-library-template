@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.4af4bdda.min.css">
       
       
 
@@ -493,7 +493,10 @@
 
 <h1 id="the-development-process">The Development Process</h1>
 <p>You are now ready to develop your library. This guide will walk you through resolving dependencies, configuring the build, creating release artifacts, and testing your library in Processing.</p>
-<p><em>Note: If you haven't set up your environment yet, refer to the <a href="getting-started.html">Getting Started guide</a>.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you haven't set up your environment yet, refer to the <a href="getting-started.html">Getting Started guide</a>.</p>
+</div>
 <h2 id="developing-the-library">Developing the library</h2>
 <p><strong>Develop your library within <code>src/main/java/</code>.</strong> Set the <code>package</code> at the top of your file to your
 own group id and library name, all together. For instance, in the example library, the group id is
@@ -516,11 +519,14 @@ dependencies can be resolved from Maven. You can add additional repositories her
 your dependencies are hosted elsewhere. </p>
 <p><strong>Your dependencies should be listed within <code>dependencies</code>.</strong> For example, if the example library
 were to use the <code>commons-math3</code> package from <code>org.apache.commons</code> as a dependency, it would be listed within <code>dependencies</code> with the following structure:</p>
-<pre><code>implementation(group = &quot;org.apache.commons&quot;, name = &quot;commons-math3&quot;, version = &quot;3.6.1&quot;)
-</code></pre>
-<p>NOTE: Dependencies added with <code>implementation</code> will be included in the release. Dependencies
+<div class="highlight"><pre><span></span><code>implementation(group = &quot;org.apache.commons&quot;, name = &quot;commons-math3&quot;, version = &quot;3.6.1&quot;)
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dependencies added with <code>implementation</code> will be included in the release. Dependencies
 added with <code>compileOnly</code>, such as Processing core, are available for compilation, but won't
 be included in the release.</p>
+</div>
 <p>After you add these dependencies, <strong>refresh Gradle</strong>, and then you will be able to access them
 in your code. Refresh Gradle by going to the Gradle menu (elephant) in your IDE
 and click on the refresh icon, which is two arrows pointing at each other's ends in a circle.</p>
@@ -569,7 +575,10 @@ contributed library Processing, after being installed. Please look at our
 </ol>
 <h2 id="creating-examples">Creating examples</h2>
 <p>Examples help users understand your library’s functionality, it is recommended that you include several clear and well-commented samples sketches in the <code>examples</code> folder.</p>
-<p><em>Note: The example sketch included in this template outputs the image shown on the home page.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The example sketch included in this template outputs the image shown on the home page.</p>
+</div>
 <h2 id="creating-the-release-artifacts">Creating the release artifacts</h2>
 <p>If you've already gone through the <a href="getting-started.html#first-steps">Getting started</a> guide, you will have
 already run Gradle tasks, and edited the <code>release.properties</code> file.</p>
@@ -704,7 +713,7 @@ already run Gradle tasks, and edited the <code>release.properties</code> file.</
     <script id="__config" type="application/json">{"base": ".", "features": ["search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.select", "content.code.highlight", "content.code.annotate", "navigation.top", "navigation.footer"], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.f1b6f286.min.js"></script>
+      <script src="assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>
