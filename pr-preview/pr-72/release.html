@@ -520,7 +520,10 @@ and publish it.</p>
 <li>Add your website URL to the <code>url</code> property in the <code>release.properties</code> file.</li>
 </ol>
 <p>Any time you want to update the documentation, edit your <code>.md</code> files and <code>mkdocs.yml</code> as needed, then push your changes to <code>main</code>. This will trigger the workflow to deploy an update.</p>
-<p><em>Note: You can find the workflow file at <code>.github/workflows/deploy_website.yml</code>.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can find the workflow file at <code>.github/workflows/deploy_website.yml</code>.</p>
+</div>
 <h3 id="alternative-hosting-and-static-site-generators">Alternative Hosting and Static Site Generators</h3>
 <p>If you prefer not to use the built-in workflow with GitHub Pages and Material for MkDocs, you are free to use another static site generator or hosting service. Note that it’s important that the site remains online, as it serves as a reference for users of your library. </p>
 <h2 id="releasing-on-github">Releasing on Github</h2>
@@ -534,9 +537,14 @@ and publish it.</p>
 <li>Click on <strong>Publish release</strong>. </li>
 </ol>
 <p>This will trigger the GitHub workflow (<code>.github/workflows/release.yml</code>), which automatically create release artifacts—<code>*.txt</code>, <code>*.zip</code>, <code>*.pdex</code> files—and add them to the release. </p>
-<p>!!! Important
-    The release tag created on Github will be propagated to the release artifacts, specifically the <code>prettyVersion</code> in the txt file and <code>library.properties</code> file in the zip. This overwrites the value input for <code>version</code> in the <code>build.gradle.kts</code> file.</p>
-<p><em>Note: By default, GitHub will also include compressed versions of your source code (e.g., <code>Source code (zip)</code> and <code>Source code (tar.gz)</code>).</em></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The release tag created on Github will be propagated to the release artifacts, specifically the <code>prettyVersion</code> in the txt file and <code>library.properties</code> file in the zip. This overwrites the value input for <code>version</code> in the <code>build.gradle.kts</code> file.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default, GitHub will also include compressed versions of your source code (e.g., <code>Source code (zip)</code> and <code>Source code (tar.gz)</code>).</p>
+</div>
 <p>For more details on releases, see GitHub’s <a href="https://docs.github.com/en/repositories/releasing-projects-on-github">official guide on releasing projects</a>.</p>
 <h2 id="publish-your-library-to-the-contribution-manager">Publish your Library to the Contribution Manager</h2>
 <p>Once you are ready to add your contribution to the Contribution Manager, submit your contribution to the
