@@ -2,7 +2,8 @@
 
 You are now ready to develop your library. This guide will walk you through resolving dependencies, configuring the build, creating release artifacts, and testing your library in Processing.
 
-_Note: If you haven't set up your environment yet, refer to the [Getting Started guide](getting-started.md)._
+!!! Note
+    If you haven't set up your environment yet, refer to the [Getting Started guide](getting-started.md).
 
 
 ## Developing the library
@@ -37,9 +38,10 @@ were to use the `commons-math3` package from `org.apache.commons` as a dependenc
 implementation(group = "org.apache.commons", name = "commons-math3", version = "3.6.1")
 ```
 
-NOTE: Dependencies added with `implementation` will be included in the release. Dependencies
-added with `compileOnly`, such as Processing core, are available for compilation, but won't
-be included in the release.
+!!! Note
+    Dependencies added with `implementation` will be included in the release. Dependencies
+    added with `compileOnly`, such as Processing core, are available for compilation, but won't
+    be included in the release.
 
 After you add these dependencies, **refresh Gradle**, and then you will be able to access them
 in your code. Refresh Gradle by going to the Gradle menu (elephant) in your IDE
@@ -89,7 +91,8 @@ those sections for [resolving dependencies](#resolving-dependencies).
 ## Creating examples
 Examples help users understand your library’s functionality, it is recommended that you include several clear and well-commented samples sketches in the `examples` folder.
 
-_Note: The example sketch included in this template outputs the image shown on the home page._
+!!! Note
+    The example sketch included in this template outputs the image shown on the home page.
 
 ## Creating the release artifacts
 If you've already gone through the [Getting started](getting-started.md#first-steps) guide, you will have
