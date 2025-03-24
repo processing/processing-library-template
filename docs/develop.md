@@ -105,16 +105,16 @@ already run Gradle tasks, and edited the `release.properties` file.
     library, toggle `Tasks` > `processing` and double click `writeLibraryProperties`. This task will
     copy all the values in `release.properties`, and also include the `version` in your `build.gradle.kts`
     file as `prettyVersion`.
-2.  **To build the library and create the release artifacts, run the Gradle task `releaseProcessingLib`.**
+2.  **To build the library and create the release artifacts, run the Gradle task `buildReleaseArtifacts`.**
     This task will create a `release` folder with needed artifacts. To do this, go to the Gradle menu 
-    (elephant), toggle `Tasks` > `processing` and double click `releaseProcessingLib`. This task 
+    (elephant), toggle `Tasks` > `processing` and double click `buildReleaseArtifacts`. This task 
     has bundled the following required tasks:
     1.  `build` task: this bundles a number of build tasks, including the `jar` task which creates a
         jar file. all build artifacts are in the folder `build`.
     2.  documentation build.
     3.  creation of the `library.properties` file: this file is built from the properties set in the
        `release.properties` file, plus the version, in the task `writeLibraryProperties`.
-    4.  within the `releaseProcessingLib` task, the `release` folder is created, jars of the library and
+    4.  within the `buildReleaseArtifacts` task, the `release` folder is created, jars of the library and
         dependencies are copied, and the `library.properties` file is copied. Also, a zip file is made.
 3.  When you would like to test your library in Processing, toggle `Tasks` > `processing` and double click
     `deployToProcessingSketchbook`, which will create the release artifacts, and copy them into the 
