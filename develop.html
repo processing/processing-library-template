@@ -590,16 +590,16 @@ already run Gradle tasks, and edited the <code>release.properties</code> file.</
     library, toggle <code>Tasks</code> &gt; <code>processing</code> and double click <code>writeLibraryProperties</code>. This task will
     copy all the values in <code>release.properties</code>, and also include the <code>version</code> in your <code>build.gradle.kts</code>
     file as <code>prettyVersion</code>.</li>
-<li><strong>To build the library and create the release artifacts, run the Gradle task <code>releaseProcessingLib</code>.</strong>
+<li><strong>To build the library and create the release artifacts, run the Gradle task <code>buildReleaseArtifacts</code>.</strong>
     This task will create a <code>release</code> folder with needed artifacts. To do this, go to the Gradle menu 
-    (elephant), toggle <code>Tasks</code> &gt; <code>processing</code> and double click <code>releaseProcessingLib</code>. This task 
+    (elephant), toggle <code>Tasks</code> &gt; <code>processing</code> and double click <code>buildReleaseArtifacts</code>. This task 
     has bundled the following required tasks:<ol>
 <li><code>build</code> task: this bundles a number of build tasks, including the <code>jar</code> task which creates a
     jar file. all build artifacts are in the folder <code>build</code>.</li>
 <li>documentation build.</li>
 <li>creation of the <code>library.properties</code> file: this file is built from the properties set in the
    <code>release.properties</code> file, plus the version, in the task <code>writeLibraryProperties</code>.</li>
-<li>within the <code>releaseProcessingLib</code> task, the <code>release</code> folder is created, jars of the library and
+<li>within the <code>buildReleaseArtifacts</code> task, the <code>release</code> folder is created, jars of the library and
     dependencies are copied, and the <code>library.properties</code> file is copied. Also, a zip file is made.</li>
 </ol>
 </li>

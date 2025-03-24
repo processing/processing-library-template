@@ -438,12 +438,12 @@
 
 
 <h1 id="getting-started">Getting Started</h1>
-<p>We're excited that you're interested in contributing to the Processing ecosystem! Building a library lets you expand Processing’s capabilities and it's a great way to give back by sharing your custom tools with the community.</p>
+<p>We're excited that you're interested in contributing to the Processing ecosystem! Building a library lets you expand Processing’s capabilities, and it's a great way to give back by sharing your custom tools with the community.</p>
 <p>This guide will help you set up your development environment and start building your library using the provided template.</p>
 <h2 id="setting-up-the-environment">Setting up the environment</h2>
 <p>Follow these steps to create your own repository on GitHub and install the necessary tools.</p>
 <ol>
-<li><strong>Create a new Github repository</strong> using the <a href="https://github.com/processing/processing-library-template">processing-library-template</a>
+<li><strong>Create a new GitHub repository</strong> using the <a href="https://github.com/processing/processing-library-template">processing-library-template</a>
    as a base.
    (See: <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template">How to create a repository from a template.</a>)
    Choose a name that reflects the library you're building. Make sure to read about Processing's <a href="https://github.com/benfry/processing4/wiki/Library-Basics#library-naming-rules">naming rules for libraries</a>. You can always rename the repository later.</li>
@@ -458,20 +458,20 @@
 <p>Now that your environment is set up, follow these steps to get familiar with the template and make sure everything works correctly:</p>
 <ol>
 <li><strong>Open up your new repository in your chosen IDE.</strong></li>
-<li><strong>Run the Gradle task <code>deployToProcessingSketchbook</code>:</strong> </li>
-<li>In the Gradle menu (the elephant icon) in your IDE, navigate to <code>Tasks</code> &gt; <code>processing</code> &gt; 
-   <code>deployToProcessingSketchbook</code>, and double click on <code>deployToProcessingSketchbook</code>. </li>
+<li><strong>Run the Gradle task <code>deployToProcessingSketchbook</code>:</strong> 
+    *In the Gradle menu (the elephant icon) in your IDE, navigate to <code>Tasks</code> &gt; <code>processing</code> &gt; 
+    <code>deployToProcessingSketchbook</code>, and double-click on <code>deployToProcessingSketchbook</code>. <ul>
 <li>This will build the library, create the release artifacts, and copy them to the folder 
-   where Processing libraries are stored.</li>
-<li><strong>Check if the library appears as a contributed library:</strong> </li>
+where Processing libraries are stored.</li>
+</ul>
+</li>
+<li><strong>Check if the library appears as a contributed library:</strong> <ul>
 <li>Open Processing, and click on <code>Sketch</code> &gt; <code>Import Library ...</code>.</li>
 <li>You should see an entry named "A Template Example Library" in the menu as <code>Contributed</code>. 
-   This is the sample library you just installed using the template. </li>
+This is the sample library you just installed using the template. </li>
 <li>If it does not appear, please check the <a href="troubleshooting.html">troubleshooting guide</a>.</li>
-<li><strong>Customize the library information</strong>:</li>
-<li>Open the file <code>release.properties</code> and edit the <code>name</code>, <code>authors</code>, and <code>sentence</code> fields to match your library. </li>
-<li>Rerun the <code>deployToProcessingSketchbook</code> Gradle task to update the library information.</li>
-<li>Open the Contribution Manager again to see your changes. The name, description, and author(s) should be updated.</li>
+</ul>
+</li>
 </ol>
 <h2 id="next-steps">Next Steps</h2>
 <p>Great, now that you're familiar with the library template, you can explore additional guides:</p>
