@@ -48,7 +48,7 @@ This will trigger the GitHub workflow (`.github/workflows/release.yml`), which a
 
 !!! Important
     The release tag created on Github will be propagated to the release artifacts.
-    Specifically the tag, without the leading `v`, will be used for the `prettyVersion` in the txt file and `library.properties` file in the zip. This overwrites the value input for `version` in the `build.gradle.kts` file.
+    Specifically the tag, without the leading `v`, will be used for the `prettyVersion` in the txt file and `library.properties` file in the zip. This overwrites the value input for `prettyVersion` in the `release.properties` file.
 
 !!! Note
     By default, GitHub will also include compressed versions of your source code (e.g., `Source code (zip)` and `Source code (tar.gz)`).
