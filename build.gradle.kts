@@ -256,6 +256,10 @@ tasks.register("deployToProcessingSketchbook") {
     group = "processing"
     dependsOn("buildReleaseArtifacts")
 
+    doFirst {
+        println("Copy to sketchbook  $sketchbookLocation ...")
+    }
+
     doLast {
         val installDirectory = file("$sketchbookLocation/libraries/$libName")
 
@@ -263,16 +267,15 @@ tasks.register("deployToProcessingSketchbook") {
         delete(installDirectory)
 
         println("Copying fresh build to sketchbook $sketchbookLocation ...")
-        project.copy {
-            from(releaseDirectory) {
-                include(
-                    "library.properties",
-                    "examples/**",
-                    "library/**",
-                    "reference/**",
-                    "src/**"
-                )
-            }
+        copy {
+            from(releaseDirectory)
+            include(
+                "library.properties",
+                "examples/**",
+                "library/**",
+                "reference/**",
+                "src/**"
+            )
             into(installDirectory)
         }
     }
