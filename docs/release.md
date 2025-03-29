@@ -31,16 +31,24 @@ Any time you want to update the documentation, edit your `.md` files and `mkdocs
 If you prefer not to use the built-in workflow with GitHub Pages and Material for MkDocs, you are free to use another static site generator or hosting service. Note that it’s important that the site remains online, as it serves as a reference for users of your library. 
 
 ## Releasing on Github
-Releasing your library on GitHub allows users to access known-working versions of your library. Unlike the repository itself, which may contain ongoing development or experimental features, releases provide specific versions of your library that are ready for use. Here is how you can make a new release using this template:
+[Releasing your library on GitHub](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) 
+allows users to access known-working versions of your library. Unlike the repository itself, which may contain ongoing development or experimental features, releases provide specific versions of your library that are ready for use. Here is how you can make a new release using this template:
 
 1. In your repository, click on **Releases**.
 2. Click **Draft a new release** to start.
-3. Click on **Choose a tag** a tag starting with "v" (e.g., `v1.0.0`). Make sure it matches the version set in your `release.properties` file.
+3. Click on **Choose a tag** and type a tag **starting with "v"** (e.g., `v1.0.0`). 
 4. Select the branch you want to use for this release (e.g., `main`).
 5. Add a title and description for the release, highlighting key updates or changes.
 6. Click on **Publish release**. 
 
 This will trigger the GitHub workflow (`.github/workflows/release.yml`), which automatically create release artifacts—`*.txt`, `*.zip`, `*.pdex` files—and add them to the release.
+
+!!! Important
+    The release workflow will only trigger if the release tag starts with `v`.
+
+!!! Important
+    The release tag created on Github will be propagated to the release artifacts.
+    Specifically the tag, without the leading `v`, will be used for the `prettyVersion` in the txt file and `library.properties` file in the zip. This overwrites the value input for `version` in the `build.gradle.kts` file.
 
 !!! Note
     By default, GitHub will also include compressed versions of your source code (e.g., `Source code (zip)` and `Source code (tar.gz)`).

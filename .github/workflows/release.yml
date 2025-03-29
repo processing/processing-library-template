@@ -10,7 +10,7 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
     env:
-      TAG_NAME: ${{ github.event.inputs.tag }}
+      FULL_RELEASE_TAG: ${{ github.ref || format('{0}{1}', 'refs/tags/', github.event.release.tag_name) }}
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
@@ -23,9 +23,13 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: 8.5
+      - name: Extract tag name
+        run: |
+          echo "RELEASE_TAG=${FULL_RELEASE_TAG:10}"
+          echo "RELEASE_TAG=${FULL_RELEASE_TAG:10}" >> $GITHUB_ENV
       - name: Build with Gradle
         id: build
-        run: gradle buildReleaseArtifacts
+        run: gradle -PgithubReleaseTag=${{ env.RELEASE_TAG }} buildReleaseArtifacts
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
