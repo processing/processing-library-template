@@ -548,6 +548,19 @@ those sections for <a href="#resolving-dependencies">resolving dependencies</a>.
     "com.myDomain". This group id should match the group id discussed in 
     section <a href="#developing-the-library">Developing the library</a>.</li>
 <li>
+<p>The <code>sketchbookLocation</code> is determined programmatically by your operation system, and is
+    where your Processing <code>sketchbook</code> folder is. This folder contains your installed libraries.
+    It is needed if you:</p>
+<ol>
+<li>wish to copy the library to the Processing sketchbook, which installs the library locally</li>
+<li>have Processing library dependencies</li>
+</ol>
+<p>This variable is in the editable section, in case the location determined is incorrect. A
+symptom of an incorrect <code>sketchbookLocation</code> is that your library does not show up as a
+contributed library Processing, after being installed. Please look at our
+<a href="troubleshooting.html">troubleshooting guide</a> if you suspect this is the case.</p>
+</li>
+<li>
 <p><strong>Define the <code>version</code> of your library in <code>build.gradle.kts</code>.</strong> This value will also be
     included in the release artifact <code>library.properties</code>. The version of your library usually 
     follows semantic versioning (semver), which uses three numbers separated by dots: 
@@ -559,20 +572,12 @@ those sections for <a href="#resolving-dependencies">resolving dependencies</a>.
 </ul>
 <p>You will update these numbers as you release new versions of your library.</p>
 </li>
-<li>
-<p>The <code>sketchbookLocation</code> is determined programmatically by your operation system, and is
-    where your Processing <code>sketchbook</code> folder is. This folder contains your installed libraries.
-    It is needed if you:</p>
-<ol>
-<li>wish to copy the library to the Processing sketchbook, which installs the library locally</li>
-<li>have Processing library dependencies</li>
 </ol>
-<p>This variable is in the editable section, in case the location determined is incorrect. A 
-symptom of an incorrect <code>sketchbookLocation</code> is that your library does not show up as a
-contributed library Processing, after being installed. Please look at our 
-<a href="troubleshooting.html">troubleshooting guide</a> if you suspect this is the case.</p>
-</li>
-</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you <a href="https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository">release your library on Github</a>,
+the prettyVersion field in your release artifacts will reflect your release tag instead of the <code>version</code> defined in <code>build.gradle.kts</code>, as a helpful automation.</p>
+</div>
 <h2 id="creating-examples">Creating examples</h2>
 <p>Examples help users understand your library’s functionality, it is recommended that you include several clear and well-commented samples sketches in the <code>examples</code> folder.</p>
 <div class="admonition note">

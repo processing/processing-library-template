@@ -527,16 +527,26 @@ and publish it.</p>
 <h3 id="alternative-hosting-and-static-site-generators">Alternative Hosting and Static Site Generators</h3>
 <p>If you prefer not to use the built-in workflow with GitHub Pages and Material for MkDocs, you are free to use another static site generator or hosting service. Note that it’s important that the site remains online, as it serves as a reference for users of your library. </p>
 <h2 id="releasing-on-github">Releasing on Github</h2>
-<p>Releasing your library on GitHub allows users to access known-working versions of your library. Unlike the repository itself, which may contain ongoing development or experimental features, releases provide specific versions of your library that are ready for use. Here is how you can make a new release using this template:</p>
+<p><a href="https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository">Releasing your library on GitHub</a> 
+allows users to access known-working versions of your library. Unlike the repository itself, which may contain ongoing development or experimental features, releases provide specific versions of your library that are ready for use. Here is how you can make a new release using this template:</p>
 <ol>
 <li>In your repository, click on <strong>Releases</strong>.</li>
 <li>Click <strong>Draft a new release</strong> to start.</li>
-<li>Click on <strong>Choose a tag</strong> a tag starting with "v" (e.g., <code>v1.0.0</code>). Make sure it matches the version set in your <code>release.properties</code> file.</li>
+<li>Click on <strong>Choose a tag</strong> and type a tag <strong>starting with "v"</strong> (e.g., <code>v1.0.0</code>). </li>
 <li>Select the branch you want to use for this release (e.g., <code>main</code>).</li>
 <li>Add a title and description for the release, highlighting key updates or changes.</li>
 <li>Click on <strong>Publish release</strong>. </li>
 </ol>
 <p>This will trigger the GitHub workflow (<code>.github/workflows/release.yml</code>), which automatically create release artifacts—<code>*.txt</code>, <code>*.zip</code>, <code>*.pdex</code> files—and add them to the release.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The release workflow will only trigger if the release tag starts with <code>v</code>.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The release tag created on Github will be propagated to the release artifacts.
+Specifically the tag, without the leading <code>v</code>, will be used for the <code>prettyVersion</code> in the txt file and <code>library.properties</code> file in the zip. This overwrites the value input for <code>version</code> in the <code>build.gradle.kts</code> file.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>By default, GitHub will also include compressed versions of your source code (e.g., <code>Source code (zip)</code> and <code>Source code (tar.gz)</code>).</p>
