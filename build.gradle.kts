@@ -259,15 +259,24 @@ tasks.register("deployToProcessingSketchbook") {
     doFirst {
         println("Copy to sketchbook  $sketchbookLocation ...")
     }
-    val installDirectory = "$sketchbookLocation/libraries/$libName"
-    copy {
-        from(releaseDirectory)
-        include("library.properties",
-            "examples/**",
-            "library/**",
-            "reference/**",
-            "src/**"
-        )
-        into(installDirectory)
+
+    doLast {
+        val installDirectory = file("$sketchbookLocation/libraries/$libName")
+
+        println("Removing old install from: $installDirectory")
+        delete(installDirectory)
+
+        println("Copying fresh build to sketchbook $sketchbookLocation ...")
+        copy {
+            from(releaseDirectory)
+            include(
+                "library.properties",
+                "examples/**",
+                "library/**",
+                "reference/**",
+                "src/**"
+            )
+            into(installDirectory)
+        }
     }
 }
