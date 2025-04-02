@@ -77,20 +77,6 @@ those sections for [resolving dependencies](#resolving-dependencies).
     contributed library Processing, after being installed. Please look at our
     [troubleshooting guide](troubleshooting.md) if you suspect this is the case.
 
-4. **Define the `version` of your library in `build.gradle.kts`.** This value will also be
-    included in the release artifact `library.properties`. The version of your library usually 
-    follows semantic versioning (semver), which uses three numbers separated by dots: 
-    "MAJOR.MINOR.PATCH" (e.g., "1.0.0"). 
-
-    - MAJOR: Increases when you make incompatible changes.
-    - MINOR: Increases when you add new features that are backward-compatible.
-    - PATCH: Increases when you make backward-compatible bug fixes.
-
-    You will update these numbers as you release new versions of your library.
-
-!!! Note
-    If you [release your library on Github](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository),
-    the prettyVersion field in your release artifacts will reflect your release tag instead of the `version` defined in `build.gradle.kts`, as a helpful automation.
 
 ## Creating examples
 Examples help users understand your library’s functionality, it is recommended that you include several clear and well-commented samples sketches in the `examples` folder.
@@ -99,16 +85,13 @@ Examples help users understand your library’s functionality, it is recommended
     The example sketch included in this template outputs the image shown on the home page.
 
 ## Creating the release artifacts
-If you've already gone through the [Getting started](getting-started.md#first-steps) guide, you will have
-already run Gradle tasks, and edited the `release.properties` file.
 
-1.  Fill in the file `release.properties` with information for your library. This information will be
-    used by Gradle to create the `library.properties` file, which is one of the required release 
-    artifacts, used by the website and Contribution Manager to describe your library. In the file itself,
-    There are comments to guide you. To create just the `library.properties` file without building the
+1.  Fill in the file `release.properties` with information for your library. In the file itself,
+    There are comments to guide you. This information will be used by Gradle to create the 
+    `library.properties` file, which is one of the required release artifacts, used by the website 
+    and Contribution Manager to describe your library. To create just the `library.properties` file without building the
     library, toggle `Tasks` > `processing` and double click `writeLibraryProperties`. This task will
-    copy all the values in `release.properties`, and also include the `version` in your `build.gradle.kts`
-    file as `prettyVersion`.
+    copy all the values in `release.properties`.
 2.  **To build the library and create the release artifacts, run the Gradle task `buildReleaseArtifacts`.**
     This task will create a `release` folder with needed artifacts. To do this, go to the Gradle menu 
     (elephant), toggle `Tasks` > `processing` and double click `buildReleaseArtifacts`. This task 
@@ -123,6 +106,13 @@ already run Gradle tasks, and edited the `release.properties` file.
 3.  When you would like to test your library in Processing, toggle `Tasks` > `processing` and double click
     `deployToProcessingSketchbook`, which will create the release artifacts, and copy them into the 
     sketchbook folder.
+
+
+!!! Note
+If you [release your library on Github](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository),
+your release tag will be used for the value of the `prettyVersion` field, overwriting the value for `prettyVersion` 
+defined in `release.properties`, as a helpful automation.
+
 
 ## Additional Documentation
 
