@@ -146,20 +146,25 @@ val releaseRoot = "$rootDir/release"
 val releaseName = libName
 val releaseDirectory = "$releaseRoot/$releaseName"
 
-tasks.register<WriteProperties>("writeLibraryProperties") {
+tasks.register("writeLibraryProperties") {
     group = "processing"
-    destinationFile = project.file("library.properties")
+    doLast {
+        val outputFile = project.file("library.properties")
+        val props = listOf(
+            "name=${libraryProperties.getProperty("name")}",
+            "version=${libraryProperties.getProperty("version")}",
+            "prettyVersion=${project.version}",
+            "authors=${libraryProperties.getProperty("authors")}",
+            "url=${libraryProperties.getProperty("url")}",
+            "categories=${libraryProperties.getProperty("categories")}",
+            "sentence=${libraryProperties.getProperty("sentence")}",
+            "paragraph=${libraryProperties.getProperty("paragraph")}",
+            "minRevision=${libraryProperties.getProperty("minRevision")}",
+            "maxRevision=${libraryProperties.getProperty("maxRevision")}"
+        )
 
-    property("name", libraryProperties.getProperty("name"))
-    property("version", libraryProperties.getProperty("version"))
-    property("prettyVersion", project.version)
-    property("authors", libraryProperties.getProperty("authors"))
-    property("url", libraryProperties.getProperty("url"))
-    property("categories", libraryProperties.getProperty("categories"))
-    property("sentence", libraryProperties.getProperty("sentence"))
-    property("paragraph", libraryProperties.getProperty("paragraph"))
-    property("minRevision", libraryProperties.getProperty("minRevision"))
-    property("maxRevision", libraryProperties.getProperty("maxRevision"))
+        outputFile.writeText(props.joinToString("\n") + "\n")
+    }
 }
 
 // define the order of running, to ensure clean is run first
